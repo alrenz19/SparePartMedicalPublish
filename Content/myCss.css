@@ -1,0 +1,148 @@
+﻿/*@media (min-width:768px) {
+    .navbar-collapse {
+        float: left;
+    }
+    .navbar .navbar-nav {
+        display: inline-block;
+    }
+}
+
+
+@media (max-width:767px) {
+    .navbar-form.navbar-right {
+        border-color: #101010;
+        width: calc(100% - 30px);
+        padding: 0;
+        border: none;
+    }
+
+
+    .main {
+        padding: 16px;
+        margin-top: 10%;
+    }
+
+    .navbar {
+        border: none;
+    }
+
+    .navbar-collapse {
+        background-color: #607D8B;
+        position: absolute;
+        top: 50px;
+        width: 100%;
+        left: 0;
+        margin: 0 !important;
+    }
+}
+*/
+ 
+    
+ 
+
+.file-upload {
+    display: inline-block;
+    overflow: hidden;
+    text-align: center;
+    vertical-align: middle;
+    font-family: Arial;
+    border: 1px solid #124d77;
+    background: #007dc1;
+    color: #fff;
+    border-radius: 6px;
+    -moz-border-radius: 6px;
+    cursor: pointer;
+    text-shadow: #000 1px 1px 2px;
+    -webkit-border-radius: 6px;
+}
+
+    .file-upload:hover {
+        background: -webkit-gradient(linear, left top, left bottom, color-stop(0.05, #0061a7), color-stop(1, #007dc1));
+        background: -moz-linear-gradient(top, #0061a7 5%, #007dc1 100%);
+        background: -webkit-linear-gradient(top, #0061a7 5%, #007dc1 100%);
+        background: -o-linear-gradient(top, #0061a7 5%, #007dc1 100%);
+        background: -ms-linear-gradient(top, #0061a7 5%, #007dc1 100%);
+        background: linear-gradient(to bottom, #0061a7 5%, #007dc1 100%);
+        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#0061a7', endColorstr='#007dc1',GradientType=0);
+        background-color: #0061a7;
+    }
+
+/* The button size */
+.file-upload {
+    height: 30px;
+}
+
+    .file-upload, .file-upload span {
+        width: 90px;
+    }
+
+        .file-upload input {
+            top: 0;
+            left: 0;
+            margin: 0;
+            font-size: 11px;
+            font-weight: bold;
+            /* Loses tab index in webkit if width is set to 0 */
+            opacity: 0;
+            filter: alpha(opacity=0);
+        }
+
+        .file-upload strong {
+            font: normal 12px Tahoma,sans-serif;
+            text-align: center;
+            vertical-align: middle;
+        }
+
+        .file-upload span {
+            top: 0;
+            left: 0;
+            display: inline-block;
+            /* Adjust button text vertical alignment */
+            padding-top: 5px;
+        }
+/* style */
+/**** stylePaging *****/
+.pagination-ys table > tbody > tr > td > span {
+    position: relative;
+    float: left;
+    padding: 8px 12px;
+    line-height: 1.42857143;
+    text-decoration: none;
+    margin-left: -1px;
+    z-index: 2;
+    color: BLACK;
+    background-color: darkgray;
+    border-color: #dddddd;
+    cursor: default;
+}
+
+.pagination-ys table > tbody > tr > td:first-child > a,
+.pagination-ys table > tbody > tr > td:first-child > span {
+    margin-left: 0;
+    border-bottom-left-radius: 4px;
+    border-top-left-radius: 4px;
+}
+
+.pagination-ys table > tbody > tr > td:last-child > a,
+.pagination-ys table > tbody > tr > td:last-child > span {
+    border-bottom-right-radius: 6px;
+    border-top-right-radius: 6px;
+}
+
+.pagination-ys table > tbody > tr > td > a {
+    padding: 10px;
+}
+
+    .pagination-ys table > tbody > tr > td > a:hover,
+    .pagination-ys table > tbody > tr > td > span:hover,
+    .pagination-ys table > tbody > tr > td > a:focus,
+    .pagination-ys table > tbody > tr > td > span:focus {
+        color: #97310e;
+        background-color: #eeeeee;
+        border-color: #dddddd;
+        text-decoration: underline;
+        border: 1px solid darkgray;
+    }
+
+
+     

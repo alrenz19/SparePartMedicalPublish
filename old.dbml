@@ -1,0 +1,66 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="QlyMaint" Class="oldDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="WebSettings" ConnectionString="Data Source=AIV787\SQLEXPRESS;Initial Catalog=QlyMaint;Integrated Security=True" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="QlyMaintConnectionString2" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.Spare_Part" Member="Spare_Part1s">
+    <Type Name="Spare_Part1">
+      <Column Name="PartID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="PositionSave" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
+      <Column Name="PartName" Type="System.String" DbType="NVarChar(450)" CanBeNull="true" />
+      <Column Name="Maker" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
+      <Column Name="Model" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
+      <Column Name="ItemCode" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="PictureURL" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="SafetyStock" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="LeadTime" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="MOQ_SPQ" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
+      <Column Name="Cost" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="Currency" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Quantity" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="PartNo" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
+      <Column Name="Supplier" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
+      <Column Name="Remark" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="IsUsing" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="IsOrder" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="CreatedDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="CreatedBy" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="ModifiedDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="ModifiedBy" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Type" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Unit" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Id_CodeMachine" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="PictureName" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="QtyStock" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ListCodeMachine" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="UserCode" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Sec" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="idTypeSP" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="TypeSP" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="SafetyStockShow" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
+      <Column Name="Date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="STT" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Price" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="SafetyStockRemark" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="OrderQty" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tbl_QtySparePart" Member="tbl_QtySparePart1s">
+    <Type Name="tbl_QtySparePart1">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="QtyInput" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="QtyOutput" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="QtyStock" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="month" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="year" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="PartID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="STT" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="QtyStockOld" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="QtyStockNew" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="OrderQty" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Status" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="OrderDate" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="OrderStatus" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="GapInput" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="TotalOrderOfMonth" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+</Database>

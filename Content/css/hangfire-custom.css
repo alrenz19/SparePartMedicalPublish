@@ -1,0 +1,104 @@
+﻿/* Hangfire Dashboard Custom Styling */
+
+/* Header styling */
+.hangfire-header {
+    background: linear-gradient(135deg, #1a237e 0%, #283593 100%);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+/* Navigation styling */
+.hangfire-nav {
+    background-color: #f5f5f5;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+    .hangfire-nav a {
+        color: #1a237e !important;
+        font-weight: 500;
+    }
+
+        .hangfire-nav a:hover {
+            background-color: #e3f2fd !important;
+            color: #0d47a1 !important;
+        }
+
+/* Cards and stats */
+.hangfire-stats {
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    background: white;
+}
+
+/* Critical alerts styling */
+.critical-badge {
+    background-color: #c62828;
+    color: white;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-weight: bold;
+}
+
+/* Warning alerts styling */
+.warning-badge {
+    background-color: #ef6c00;
+    color: white;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-weight: bold;
+}
+
+/* Normal status */
+.normal-badge {
+    background-color: #2e7d32;
+    color: white;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-weight: bold;
+}
+
+/* Tables */
+.hangfire-table {
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+    .hangfire-table th {
+        background-color: #1a237e;
+        color: white;
+        font-weight: 600;
+    }
+
+    .hangfire-table tr:hover {
+        background-color: #f5f5f5;
+    }
+
+/* Buttons */
+.hangfire-btn {
+    background-color: #1a237e;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 6px 12px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+    .hangfire-btn:hover {
+        background-color: #283593;
+    }
+
+/* Dashboard cards */
+.card {
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    padding: 20px;
+    margin: 10px;
+    transition: transform 0.3s;
+}
+
+    .card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    }

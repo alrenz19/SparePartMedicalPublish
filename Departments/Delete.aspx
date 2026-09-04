@@ -1,0 +1,37 @@
+
+	  <%@ Page Title="Delete" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true"
+    CodeBehind="Delete.aspx.cs" Inherits="QlyMain.Departments.Delete" EnableEventValidation="false" %>
+  <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
+		  
+		  
+		  <section class="content-header">
+		  <h1> Department <small></small> </h1>
+		  <ol class="breadcrumb">
+		   <li><a href="~/index.aspx" runat="server"><i class="fa fa-dashboard"></i>Home</a></li>
+		  <li class="active"> Department</li>
+		  </ol>
+		   </section>
+		  
+		  <div class="content">
+		  <h2>Confirm Deletion</h2>
+		  <p>Are you sure you want to delete the following Departments?</p>
+		   <div class="panel panel-warning">
+		  <div class="panel-body">
+			 <label>DepartmentName</label>
+			 <asp:Label ID="lblDepartmentName" runat="server" CssClass="form-value"></asp:Label>
+			 <br />
+			 <label>DepartmentCode</label>
+			 <asp:Label ID="lblDepartmentCode" runat="server" CssClass="form-value"></asp:Label>
+			 <br />
+			   <asp:Label ID="lblMessage" runat="server" CssClass="form-error" />
+			    <asp:Literal ID="LiteralThongBao" runat="server"> </asp:Literal>
+		 </div>
+			 <div class="panel-footer">
+			 <asp:Button ID="btnDelete" runat="server" Text="Delete" OnClick="btnDelete_Click" CssClass="btn btn-warning" />
+			 <asp:Button ID="btnCancel" runat="server" Text="Cancel" OnClick="btnCancel_Click" CssClass="btn btn-default" />
+			 </div>
+		 </div>
+	 </div>
+ </asp:Content>
+	 
+	 

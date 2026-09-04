@@ -1,0 +1,428 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="FASite.master.cs" Inherits="QlyMain.FASite" %>
+
+<!DOCTYPE html>
+
+<html lang="en">
+<head runat="server">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title><%: Page.Title %> - My ASP.NET Application</title>
+    <asp:PlaceHolder runat="server">
+        <%: Scripts.Render("~/bundles/modernizr") %>
+    </asp:PlaceHolder>
+    <webopt:BundleReference runat="server" Path="~/Content/css" />
+    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <link href="Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="Content/font-awesome.min.css" rel="stylesheet" />
+    <link href="Content/myCss.css" rel="stylesheet" />
+    <link href="Content/plugin/select2/select2.min.css" rel="stylesheet" />
+    <link href="Content/css/bootstrap-multiselect.css" rel="stylesheet" />
+    <link href="Content/SiteCss.css" rel="stylesheet" />
+    <asp:PlaceHolder runat="server">
+        <script src="<%=ResolveClientUrl("~/Scripts/")%>jquery-3.4.1.min.js"></script>
+        <script src="<%=ResolveClientUrl("~/Scripts/")%>jQuery%20UI.js"></script>
+        <script src="<%=ResolveClientUrl("~/Scripts/")%>bootstrap.min.js"></script>
+        <script src="<%=ResolveClientUrl("~/Scripts/")%>bootstrap-multiselect.js"></script>
+        <script src="<%=ResolveClientUrl("~/Content/")%>plugin/select2/select2.min.js"></script>
+        <script src="<%=ResolveClientUrl("~/Scripts/")%>Site.js"></script>
+        <script src="<%=ResolveClientUrl("~/Accounting/")%>moment.min.js"></script>
+    </asp:PlaceHolder>
+    <%--        <script src="/../Scripts/jquery-3.4.1.min.js"></script>
+    <script src="/../Accounting/moment.min.js"></script>--%>
+    <script>
+        $(function () {
+            $('.select2').select2({
+                dropdownParent: $("#mdContent")
+            });
+        });
+        $(function () {
+            $('.select3').select2({
+                dropdownParent: $("#mdContentNG")
+            });
+        });
+        $(function () {
+            $('.selectEdit').select2({
+                dropdownParent: $("#EditModal")
+            });
+        });
+        $(function () {
+            $('.select4').select2(
+                {
+                    dropdownParent: $("#mdContent")
+                });
+        });
+
+        $(function () {
+            $('.select5').select2();
+        });
+
+        $(function () {
+            $('.select7').select2();
+        });
+        $(function () {
+            $('.selectM').select2();
+        });
+        $(function () {
+            $('.seleclMachine').select2();
+        });
+        $(function () {
+            $('.SelectMail').select2();
+        });
+        $(function () {
+            $('.selectMachineMenu').select2();
+        });
+    </script>
+    <style>
+        body {
+            font-family: 'Emoji';
+        }
+
+        .modalBackground1 {
+            background-color: Black;
+            filter: alpha(opacity=40);
+            opacity: 0.4;
+        }
+
+
+
+        .modalmail {
+            width: 90%;
+            margin-left: 4%;
+            padding: 5px;
+        }
+
+        .modalmailNested {
+            width: 80%;
+            margin-left: 4%;
+            padding: 5px;
+        }
+
+        .overflowHide {
+            overflow: hidden;
+        }
+
+        .popupmail {
+            top: 5% !important;
+            width: 80%;
+        }
+
+        .lbkDel {
+            font-family: cursive;
+            font-size: x-large;
+            color: #337ab700;
+        }
+
+        .btCancelStyle {
+            font-family: cursive;
+            font-size: x-large;
+            color: indianred;
+        }
+
+            .btCancelStyle:hover {
+                color: red;
+                text-decoration: none;
+            }
+
+        .lbk:hover .lbkDel {
+            color: grey;
+            text-decoration: none;
+        }
+
+        .lbk:hover .lbl:hover {
+            color: red;
+            text-decoration: none;
+        }
+
+        .dropdown-submenu {
+            position: relative;
+        }
+
+            .dropdown-submenu .dropdown-menu {
+                top: 0;
+                left: 100%;
+                margin-top: -1px;
+            }
+
+        span.select2-selection.select2-selection--single {
+            height: 40px;
+            font-size: medium;
+            padding-top: 1%;
+            color: cadetblue;
+        }
+
+        .styleTagA {
+            color: #4c4c4c;
+            text-decoration: none;
+        }
+
+        .liStyle {
+            color: #2f605b !important;
+            font: 200 !important;
+        }
+
+            .liStyle:hover {
+                color: #129386 !important;
+            }
+
+        .width150 {
+            width: 150px !important;
+        }
+        /* width */
+        ::-webkit-scrollbar {
+            width: 10px;
+            height: 10px;
+        }
+
+        /* Track */
+        ::-webkit-scrollbar-track {
+            box-shadow: inset 0 0 5px grey;
+            border-radius: 10px;
+        }
+
+        /* Handle */
+        ::-webkit-scrollbar-thumb {
+            background: #8080807a;
+            border-radius: 10px;
+        }
+
+            /* Handle on hover */
+            ::-webkit-scrollbar-thumb:hover {
+                background: #607d8ba8;
+            }
+
+        .image-zoom {
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+
+            .image-zoom:hover {
+                transform: scale(1.2); /* Phóng to hình ảnh khi hover */
+            }
+        /* Ẩn các menu khi màn hình có kích thước nhỏ */
+        @media (max-width: 767px) {
+            .navbar-nav {
+                display: none !important;
+            }
+
+            .navbar-collapse.collapse {
+                display: block !important;
+            }
+
+            .navbar-toggle {
+                display: block !important;
+            }
+
+            .show-nav {
+                display: block !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <form runat="server">
+        <asp:ScriptManager runat="server">
+        </asp:ScriptManager>
+        <div class="container-fluid">
+            <div class="row">
+
+                <nav class="navbar navbar-default">
+                    <div class="container-fluid">
+                        <div class="navbar-header">
+                            <!-- Button navbar-toggle -->
+                            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar1">
+                                <span class="sr-only">Toggle navigation</span>
+                                <!-- Icon bars -->
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                            </button>
+                            <div class="navbar-form navbar-left" role="search" style="display: none">
+                                <div class="input-group">
+                                    <asp:Panel runat="server" DefaultButton="btnCodeMachine">
+                                        <asp:TextBox runat="server" Height="35px" ID="txtMachine"
+                                            placeholder="Machine..." autocomplete="off" CssClass="form-control width150" />
+                                        <span class="input-group-btn">
+                                            <asp:ImageButton ImageUrl="Img/qr-code2.png" ID="btnCodeMachine"
+                                                CssClass="btn btn-default" Height="35px" runat="server" OnClick="btnCodeMachine_Click" />
+                                        </span>
+                                    </asp:Panel>
+                                </div>
+                            </div>
+                            <!-- Brand and toggle get grouped for better mobile display -->
+                        </div>
+                        <!-- Collect the nav links, forms, and other content for toggling -->
+                        <div class="collapse navbar-collapse" id="navbar1">
+                            <ul class="nav navbar-nav">
+                                <a class="navbar-brand" id="LinkHome" runat="server" href="#">Maint</a>
+                                <%--   <li class="active"> </li>--%>
+                                <li class="nav-item dropdown">
+                                    <a class="navbar-link dropdown-toggle" data-toggle="dropdown" href="#">
+                                        <span class="glyphicon glyphicon-triangle-bottom"></span></a>
+                                    <ul class="dropdown-menu">
+                                        <li style="display: none"><a tabindex="-1" runat="server" id="Link">CheckSheet</a></li>
+                                        <li class="dropdown-submenu">
+                                            <a class="test liStyle" runat="server" tabindex="-1" href="#">Admin<span class="caret"></span></a>
+                                            <ul class="dropdown-menu">
+                                                <li><a tabindex="-1" id="linkMnMachine" class="liStyle" runat="server">Machine Management</a></li>
+                                            </ul>
+                                        </li>
+                                        <li class="dropdown-submenu">
+                                            <a class="test liStyle" runat="server" tabindex="-1" href="#">Machine repair history <span class="caret"></span></a>
+                                            <ul class="dropdown-menu">
+                                                <li><a tabindex="-1" id="LinkHistory" class="liStyle" runat="server">Problem History List</a></li>
+                                                <li><a tabindex="-1" runat="server" class="liStyle" id="LinkHistoryList">Data search</a></li>
+                                                <li><a tabindex="-1" runat="server" class="liStyle" id="LinkHistoryChart">Statistical charts</a></li>
+                                            </ul>
+                                        </li>
+
+<%--                                        <li><a tabindex="-1" id="LinkUpload" class="liStyle" runat="server">Upload data</a></li>--%>
+                                        <li class="dropdown-submenu">
+                                            <a class="test liStyle" runat="server" tabindex="-1" href="#">Spare part <span class="caret"></span></a>
+                                            <ul class="dropdown-menu">
+                                                <li><a tabindex="-1" id="lbkListSparePartMenu" class="liStyle" runat="server">List Spare part</a></li>
+                                                <li><a tabindex="-1" id="lbkSafeStockHistory" class="liStyle" runat="server">SafeStock History</a></li>
+                                            </ul>
+                                        </li>
+
+                                        <li><a tabindex="-1" id="LinkLienKetSP" class="liStyle" runat="server">Linking Spare Parts with Machine</a></li>
+                                        <li><a tabindex="-1" id="LinkScheduler" class="liStyle" runat="server">Maintenance plan</a></li>
+                                        <li>
+                                            <asp:HyperLink ID="hyperlink1" CssClass="liStyle" NavigateUrl="~/Accounting/RingiControl.aspx?" Text="Accounting" runat="server" />
+                                        </li>
+
+                                    </ul>
+                                </li>
+                                <li class="dropdown">
+                                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">FA
+                                        <b class="caret"></b>
+                                    </a>
+                                    <ul class="dropdown-menu ">
+                                        <li>
+                                            <asp:HyperLink ID="hyperlink2" CssClass="liStyle" NavigateUrl="~/Accounting/Inventory.aspx" Text="Inventory" runat="server" />
+                                        </li>
+                                        <li>
+                                            <asp:HyperLink ID="hyperlink3" CssClass="liStyle" NavigateUrl="~/Admin/MngFA.aspx" Text="FA List" runat="server">FA List</asp:HyperLink></li>
+                                    </ul>
+                                </li>
+
+                                <li class="dropdown">
+                                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                                        <i class="fa fa-user fa-fw"></i>
+                                        <asp:Label ID="lblUser" runat="server" />
+                                        <asp:Label ID="lblUserCode" runat="server" Visible="false" />
+                                        <b class="caret"></b>
+                                    </a>
+                                    <ul class="dropdown-menu dropdown-user">
+                                        <li>
+                                            <asp:LinkButton runat="server" ID="lbkUser">
+                                      <i class="fa fa-user fa-fw"></i>User Profile
+                                            </asp:LinkButton>
+                                        </li>
+                                        <li>
+                                            <a href="#" id="linkMnSetting" runat="server"><i class="fa fa-gear fa-fw"></i>Settings</a> </li>
+                                        <li class="divider"></li>
+                                        <li><a href="~/Login.aspx" runat="server"><i class="fa fa-sign-out fa-fw"></i>Logout</a> </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+            <div class="row">
+                <asp:ContentPlaceHolder ID="MainContent" runat="server">
+                </asp:ContentPlaceHolder>
+            </div>
+        </div>
+        <asp:HiddenField ID="_idCodeMachine" runat="server" />
+        <asp:HiddenField ID="_ididReceive" runat="server" />
+        <asp:HiddenField ID="_idSend" runat="server" />
+        <asp:HiddenField ID="_all" runat="server" />
+    </form>
+    <script type="text/javascript">
+
+        $(function () {
+            $('.selectSecSit').select2(
+                {
+                    dropdownParent: $("#HethanModalSIte")
+                });
+        });
+
+        function ShowMessage(message, messagetype) {
+            var cssclass;
+            switch (messagetype) {
+                case 'Success':
+                    cssclass = 'alert-success';
+                    break;
+                case 'Error':
+                    cssclass = 'alert-danger';
+                    break;
+                case 'Warning':
+                    cssclass = 'alert-warning';
+                    break;
+                default:
+                    cssclass = 'alert-info';
+            }
+            $('#alert_container').append('<div id="alert_div" style="margin: 0 0.5%; -webkit-box-shadow: 3px 4px 6px #999;" class="alert fade in ' + cssclass + '"><a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a><strong>' + messagetype + '!</strong> <span>' + message + '</span></div>');
+
+            setTimeout(function () {
+                $("#alert_div").fadeTo(200, 800).slideUp(800, function () {
+                    $("#alert_div").remove();
+                });
+            }, 1200);//5000=5 seconds
+        }
+        $(document).ready(function () {
+            $('.dropdown-submenu a.test').on("click", function (e) {
+                $(this).next('ul').toggle();
+                e.stopPropagation();
+                e.preventDefault();
+            });
+        });
+        function zoomImage(image) {
+            // Đặt kích thước hình ảnh lớn hơn
+            image.style.transform = "scale(1.5)";
+            // Đặt z-index để đảm bảo hình ảnh phía trên
+            image.style.zIndex = "1";
+
+            // Tạo một overlay bằng JavaScript
+            var overlay = document.createElement("div");
+            overlay.style.position = "fixed";
+            overlay.style.top = "0";
+            overlay.style.left = "0";
+            overlay.style.width = "100%";
+            overlay.style.height = "100%";
+            overlay.style.backgroundColor = "rgba(0, 0, 0, 0.7)";
+            overlay.style.display = "flex";
+            overlay.style.justifyContent = "center";
+            overlay.style.alignItems = "center";
+
+            // Tạo một hình ảnh lớn để hiển thị
+            var largeImage = document.createElement("img");
+            largeImage.src = image.src;
+            largeImage.style.maxWidth = "100%";
+            largeImage.style.maxHeight = "100%";
+
+            // Thêm hình ảnh lớn vào overlay
+            overlay.appendChild(largeImage);
+
+            // Bắt đầu sự kiện click để đóng hình ảnh phóng to
+            overlay.onclick = function () {
+                overlay.remove();
+                // Đặt lại kích thước và z-index của hình ảnh gốc
+                image.style.transform = "scale(1)";
+                image.style.zIndex = "0";
+            };
+
+            // Thêm overlay vào trang
+            document.body.appendChild(overlay);
+        }
+
+
+        $(document).ready(function () {
+            $('.navbar-toggle').click(function () {
+                $('.navbar-nav').toggleClass('show-nav');
+            });
+        });
+    </script>
+</body>
+</html>

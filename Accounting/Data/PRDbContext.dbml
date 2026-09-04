@@ -1,0 +1,604 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="IT_PURCHASE_SYSTEM" Class="PRDbContextDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="WebSettings" ConnectionString="Data Source=10.33.0.248;Initial Catalog=IT_PURCHASE_SYSTEM;Persist Security Info=True;User ID=aih" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="IT_PURCHASE_SYSTEMConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.AIVUSER" Member="AIVUSERs">
+    <Type Name="AIVUSER">
+      <Column Name="USERNAME" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="PASSWORD" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="ROLE" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="NAME" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="ROLE_TYPE" Type="System.String" DbType="NVarChar(220)" CanBeNull="true" />
+      <Column Name="PW_ISSUE_DATE" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="PERIOD" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TYPE_ACC_CODE_BY_SAP" Member="TYPE_ACC_CODE_BY_SAPs">
+    <Type Name="TYPE_ACC_CODE_BY_SAP">
+      <Column Name="ACC_ID" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="ACC_NO" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="ACC_NAME" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="DOMESTIC_OVERSEA" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="NATION" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="TYPE_FLG" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ITEM_MASTER" Member="ITEM_MASTERs">
+    <Type Name="ITEM_MASTER">
+      <Column Name="ITEM_NO" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="ITEM_NAME_EN" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="ITEM_NAME_VN" Type="System.String" DbType="NVarChar(300)" CanBeNull="true" />
+      <Column Name="UNIT" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="FLG" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="SUPPLIER" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="CUR" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="UNIT_PRICE" Type="System.Decimal" DbType="Decimal(20,4)" CanBeNull="true" />
+      <Column Name="LEAD_TIME" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
+      <Column Name="DRAWING_NO" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="ITEM_SUP_CODE" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="JNAME" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="JUNIT" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="JPRICE" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="MOQ" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="TNAME" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="TUNIT" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="TPRICE" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="WORK_STD" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="SPEC" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="DRAWING" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="SUPPLIER_ID" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="UPDATE_BY" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="DATE_OF_UDP" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="SIAM_CODE" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="EXPIRE" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="ITEM_RANK" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="FORECAST" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="REMARK" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="MIX_ITEM" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
+      <Column Name="SIAM_NAME" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="SIAM_UNIT" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="BLOCK_ITEM" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="SHIP" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="MAKER" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="SECTION_REQUEST" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
+      <Column Name="CATEGORY" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="CHEMICAL_NO" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
+      <Column Name="SAP_CODE" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="SAP_FLG" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ITEM_MASTER_LOG" Member="ITEM_MASTER_LOGs">
+    <Type Name="ITEM_MASTER_LOG">
+      <Column Name="ITEM_NO" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="SEQ" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="PRICE_BEFORE" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="PRICE_AFTER" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="UPDATE_BY" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="UPDATE_DATE" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="REMARK_LOG" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ITEM_MASTER_REGISTION" Member="ITEM_MASTER_REGISTIONs">
+    <Type Name="ITEM_MASTER_REGISTION">
+      <Column Name="ITEM_REG_NO" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="ITEM_NO" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="ITEM_CODE" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="SIAM_CODE" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="ITEM_NAME_EN" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="ITEM_NAME_VN" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="UNIT" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="UNIT_PRICE" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="CURRENCY" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="MOQ" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="SUPPLIER_LT" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="AIH_LT" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="TYPE_REG" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="FLG" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="MRP" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="SUPPLIER" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="MAKER" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="SPEC_NO" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="EXT_NO" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="CATALOG" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="QUOTATION" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="MSDS" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="ATTACHEMENT" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="REGIST_DATE" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="REMARK" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="SECTION" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="REF_NO" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="CHEMICAL" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="MATERIALNOSAP" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="PLANT" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="PURGROUP" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ITEM_SUPPLIER" Member="ITEM_SUPPLIERs">
+    <Type Name="ITEM_SUPPLIER">
+      <Column Name="SUPPLIER_ID" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
+      <Column Name="ITEM_NO" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="PRICE" Type="System.Decimal" DbType="Decimal(20,4)" CanBeNull="true" />
+      <Column Name="CUR" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
+      <Column Name="ITEM_SUP_CODE" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="MOQ" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="LEAD_TIME" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ITEM_SUPPLIER_QTY" Member="ITEM_SUPPLIER_QTies">
+    <Type Name="ITEM_SUPPLIER_QTY">
+      <Column Name="SUPPLIER_ID" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="ITEM_NO" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="QTY" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="PRICE" Type="System.Double" DbType="Float" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.PUR_AMEND_DTL" Member="PUR_AMEND_DTLs">
+    <Type Name="PUR_AMEND_DTL">
+      <Column Name="AMEND_NO" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="AMEND_DTL" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="PR_SAP_NO" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="PR_SAP_DTL_NO" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="PO_SAP_NO" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="PO_SAP_DTL_NO" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="ITEM_SAP_CODE" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="ITEM_NAME" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="UNIT" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="CUR" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="QUANTITY" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="ETA" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="AMEND_CODE" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="AMEND_NAME" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="AMEND_UNIT" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="AMEND_CUR" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="AMEND_ETA" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="AMEND_QUANTITY" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="REASON" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="SUPPLIER_CONFIRM" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.PUR_AMEND_HDR" Member="PUR_AMEND_HDRs">
+    <Type Name="PUR_AMEND_HDR">
+      <Column Name="AMEND_NO" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="VENDOR" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="ISSUE_DATE" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="REQUESTER" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="OVERSEA_DOMESTIC" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="FLG" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="RECEIVE_DATE" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="AMEND1" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="AMEND2" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.PUR_CHEMICAL_SLIP" Member="PUR_CHEMICAL_SLIPs">
+    <Type Name="PUR_CHEMICAL_SLIP">
+      <Column Name="CHEMICAL_ID" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="CHEMICAL_NO" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="CHEMICAL_NAME" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="EXTERNAL_NO" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="MSDS_NO" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="CAS_NO" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="UN_NO" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="DESCRIPTION" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="MAKER" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="SUPPLIER" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="GHS02" Type="System.Decimal" DbType="Decimal(1,0)" CanBeNull="true" />
+      <Column Name="GHS05" Type="System.Decimal" DbType="Decimal(1,0)" CanBeNull="true" />
+      <Column Name="GHS06" Type="System.Decimal" DbType="Decimal(1,0)" CanBeNull="true" />
+      <Column Name="GHS07" Type="System.Decimal" DbType="Decimal(1,0)" CanBeNull="true" />
+      <Column Name="GHS08" Type="System.Decimal" DbType="Decimal(1,0)" CanBeNull="true" />
+      <Column Name="FLG" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="DATE_OF_PR" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="EXPIRE_DATE" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="SECTION" Type="System.Decimal" DbType="Decimal(2,0)" CanBeNull="true" />
+      <Column Name="HDBQ" Type="System.String" DbType="NVarChar(300)" CanBeNull="true" />
+      <Column Name="EXPIRE_BY_MSDS" Type="System.String" DbType="NVarChar(400)" CanBeNull="true" />
+      <Column Name="DECHAY" Type="System.Decimal" DbType="Decimal(1,0)" CanBeNull="true" />
+      <Column Name="HUTAM" Type="System.Decimal" DbType="Decimal(1,0)" CanBeNull="true" />
+      <Column Name="DOCHAI" Type="System.Decimal" DbType="Decimal(1,0)" CanBeNull="true" />
+      <Column Name="BAYHOI" Type="System.Decimal" DbType="Decimal(1,0)" CanBeNull="true" />
+      <Column Name="DE_NO" Type="System.Decimal" DbType="Decimal(1,0)" CanBeNull="true" />
+      <Column Name="REMARK_DENO" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.PUR_EMPLOYEE" Member="PUR_EMPLOYEEs">
+    <Type Name="PUR_EMPLOYEE">
+      <Column Name="EMPLOYEE_CODE" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
+      <Column Name="NAME" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
+      <Column Name="FULL_NAME" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.PUR_GROUP_SAP" Member="PUR_GROUP_SAPs">
+    <Type Name="PUR_GROUP_SAP">
+      <Column Name="PURGROUP_ID" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="SECTION_NAME" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="PLANT" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.PUR_ITEM_REGIST_CHANGE" Member="PUR_ITEM_REGIST_CHANGEs">
+    <Type Name="PUR_ITEM_REGIST_CHANGE">
+      <Column Name="ID" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="REF_NO" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="ITEM_CODE" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="SIAM_CODE" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="ITEM_NAME_EN" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="ITEM_NAME_VN" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="UNIT" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="UNIT_PRICE" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="CUR" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="MOQ" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="SUPPLIER_LT" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="AIH_LT" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="FLG" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="MRP" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="SUPPLIER" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="MAKER" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="SPEC_NO" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="EXTERNAL_NO" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="ATTACH" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="ITEM_CODE_C" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="SIAM_CODE_C" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="ITEM_NAME_EN_C" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="ITEM_NAME_VN_C" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="UNIT_C" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="UNIT_PRICE_C" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="CURRENT_C" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="MOQ_C" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="SUPPLIER_LT_C" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="AIH_LT_C" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="FLG_C" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="SECTION" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="TYPE" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="ISSUE_DATE" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="CHEMICAL" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="MATERIAL_NO_SAP" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="PLANT" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="PUR_GROUP" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="MATERIAL_NO_SAP_C" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="PLANT_C" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="PUR_GROUP_C" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.PUR_ITEM_SUPPLIER_QTY_LOG" Member="PUR_ITEM_SUPPLIER_QTY_LOGs">
+    <Type Name="PUR_ITEM_SUPPLIER_QTY_LOG">
+      <Column Name="ITEM_NO" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="SEQ" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="QTY_BEFORE" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="QTY_AFTER" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="PRICE_BEFORE" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="PRICE_AFTER" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="UPDATE_BY" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="UPDATE_DATE" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="REMARK_LOG" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.PUR_PO_SAP" Member="PUR_PO_SAPs">
+    <Type Name="PUR_PO_SAP">
+      <Column Name="PO_NO" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="PO_DTL_NO" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
+      <Column Name="PR_NO" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="PR_DTL_NO" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.PUR_PO_SAP_MRP" Member="PUR_PO_SAP_MRPs">
+    <Type Name="PUR_PO_SAP_MRP">
+      <Column Name="PO_NO" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="PO_DTL_NO" Type="System.String" DbType="NVarChar(4)" CanBeNull="true" />
+      <Column Name="PR_NO" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="PR_DTL_NO" Type="System.Decimal" DbType="Decimal(4,0)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.PUR_QT_SIGN_APPROVED" Member="PUR_QT_SIGN_APPROVEDs">
+    <Type Name="PUR_QT_SIGN_APPROVED">
+      <Column Name="SECTION_CODE" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="EMPLOYEE_CODE" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="USER_NAME" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="FULL_NAME" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="EMAIL" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="POSITION" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.PUR_QUOTATION_APPROVED_DTL" Member="PUR_QUOTATION_APPROVED_DTLs">
+    <Type Name="PUR_QUOTATION_APPROVED_DTL">
+      <Column Name="QR_NO" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="QR_DTL_NO" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ITEM_NAME_EN" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="ITEM_NAME_VN" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="MODEL" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="ORIGIN" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="MAKER" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="MATERIAL" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="QTY" Type="System.Decimal" DbType="Decimal(18,3)" CanBeNull="true" />
+      <Column Name="UNIT" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="CATEGORY" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="UNIT_PRICE" Type="System.Decimal" DbType="Decimal(18,3)" CanBeNull="true" />
+      <Column Name="SUB_TOTAL" Type="System.Decimal" DbType="Decimal(18,3)" CanBeNull="true" />
+      <Column Name="CUR" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="MOQ" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="LEAD_TIME" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="REMARK" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="SUPPLIER" Type="System.Decimal" DbType="Decimal(4,0)" CanBeNull="true" />
+      <Column Name="ITEM_NAME_EN_CONFIRM" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="ITEM_NAME_VN_CONFIRM" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="MODEL_CONFIRM" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.PUR_QUOTATION_APPROVED_HDR" Member="PUR_QUOTATION_APPROVED_HDRs">
+    <Type Name="PUR_QUOTATION_APPROVED_HDR">
+      <Column Name="QR_NO" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="ISSUE_DATE" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="OVERSEA_DOMESTIC" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="FINISHED" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="CONFIRM_BY_SEC" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="REMARK_CONFIRM" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="REMARK_CANCEL_QR" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.PUR_QUOTATION_REQUEST_DTL" Member="PUR_QUOTATION_REQUEST_DTLs">
+    <Type Name="PUR_QUOTATION_REQUEST_DTL">
+      <Column Name="QR_NO" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="QR_DTL_NO" Type="System.Decimal" DbType="Decimal(3,0)" CanBeNull="true" />
+      <Column Name="ITEM_NAME_EN" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="ITEM_NAME_VN" Type="System.String" DbType="NVarChar(300)" CanBeNull="true" />
+      <Column Name="MODEL" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="ORIGIN" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="MAKER" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="MATERIAL" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="QTY" Type="System.Decimal" DbType="Decimal(18,3)" CanBeNull="true" />
+      <Column Name="UNIT" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="CATEGORY" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="PURPOSE" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="ATTACHED_FILE" Type="System.Decimal" DbType="Decimal(1,0)" CanBeNull="true" />
+      <Column Name="REMARK" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="FINISH" Type="System.Decimal" DbType="Decimal(1,0)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.PUR_QUOTATION_REQUEST_HDR" Member="PUR_QUOTATION_REQUEST_HDRs">
+    <Type Name="PUR_QUOTATION_REQUEST_HDR">
+      <Column Name="QR_NO" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="SECTION" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="ISSUE_DATE" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="ISSUE_BY" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="RECEIVED_DATE" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="SENT_TO_PUR" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="RETURN_QR" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="LOG_ON_BY" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="RETURN_REMARK" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="QR_NO_PUR_RECEIVED" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="CONFIRM_DATE" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="SIGN_APP" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="DATE_APP" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="REQUESTER_SIGN" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="FROM_MAIL_REQ" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="TO_MAIL_APP" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="PUR_SIGN_REC" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="DATE_PUR_SIGN" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.PUR_REQ_SAP_DTL" Member="PUR_REQ_SAP_DTLs">
+    <Type Name="PUR_REQ_SAP_DTL">
+      <Column Name="PR_HDR_NO" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="PRNO_SAP" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="PRNO_SAP_DTL" Type="System.Decimal" DbType="Decimal(3,0)" CanBeNull="true" />
+      <Column Name="MATERIAL" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="SHORT_TEXT" Type="System.String" DbType="NVarChar(300)" CanBeNull="true" />
+      <Column Name="QTY" Type="System.Decimal" DbType="Decimal(18,4)" CanBeNull="true" />
+      <Column Name="UNIT" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
+      <Column Name="NET_PRICE" Type="System.Decimal" DbType="Decimal(18,4)" CanBeNull="true" />
+      <Column Name="CUR" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
+      <Column Name="AMOUNT" Type="System.Decimal" DbType="Decimal(18,4)" CanBeNull="true" />
+      <Column Name="DELIVERY_DATE" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="MATERIAL_GROUP" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
+      <Column Name="PUCHASE_GROUP" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
+      <Column Name="VENDOR" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
+      <Column Name="HANOI_ITEM_NO" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
+      <Column Name="HANOI_FLG" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
+      <Column Name="ITEM_NAME_VN" Type="System.String" DbType="NVarChar(300)" CanBeNull="true" />
+      <Column Name="GL_ACCOUNT" Type="System.Decimal" DbType="Decimal(10,0)" CanBeNull="true" />
+      <Column Name="URGENT" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="STORAGE_LOCATION" Type="System.String" DbType="NVarChar(4)" CanBeNull="true" />
+      <Column Name="REQUISITIONER" Type="System.String" DbType="NVarChar(12)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.PUR_REQ_SAP_DTL_MRP" Member="PUR_REQ_SAP_DTL_MRPs">
+    <Type Name="PUR_REQ_SAP_DTL_MRP">
+      <Column Name="PR_HDR_NO" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="PRNO_SAP" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="DTL_NO" Type="System.Decimal" DbType="Decimal(4,0)" CanBeNull="true" />
+      <Column Name="HANOI_ITEM_NO" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="SAP_CODE" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="ITEM_NAME" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="QTY" Type="System.Decimal" DbType="Decimal(18,3)" CanBeNull="true" />
+      <Column Name="UNIT" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
+      <Column Name="NET_PRICE" Type="System.Decimal" DbType="Decimal(19,5)" CanBeNull="true" />
+      <Column Name="CUR" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
+      <Column Name="AMOUNT" Type="System.Decimal" DbType="Decimal(19,5)" CanBeNull="true" />
+      <Column Name="DELIVERY_DATE" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="HANOI_FLG" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="PUR_GROUP" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
+      <Column Name="PLANT" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
+      <Column Name="VENDOR" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="ITEM_NAME_VN" Type="System.String" DbType="NVarChar(300)" CanBeNull="true" />
+      <Column Name="PR_SAP_DTL_NO" Type="System.String" DbType="NVarChar(4)" CanBeNull="true" />
+      <Column Name="GL_ACCOUNT" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
+      <Column Name="URGENT" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
+      <Column Name="MATERIAL_GROUP" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
+      <Column Name="STORAGE_LOCATION" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
+      <Column Name="REQUISITIONER" Type="System.String" DbType="NVarChar(12)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.PUR_REQ_SAP_HDR" Member="PUR_REQ_SAP_HDRs">
+    <Type Name="PUR_REQ_SAP_HDR">
+      <Column Name="PR_HDR_NO" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="PRNO_SAP" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="SECTION" Type="System.Decimal" DbType="Decimal(3,0)" CanBeNull="true" />
+      <Column Name="ISSUE_DATE" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="ISSUE_BY" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="RECEIVE_DATE" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="OVERSEA_DOMESTIC" Type="System.Decimal" DbType="Decimal(1,0)" CanBeNull="true" />
+      <Column Name="PUR_NO" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="FLG" Type="System.Decimal" DbType="Decimal(1,0)" CanBeNull="true" />
+      <Column Name="RING_NO" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="CREATE_BY" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="REMARK" Type="System.String" DbType="NVarChar(400)" CanBeNull="true" />
+      <Column Name="PLANT" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="URGENT" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.PUR_REQ_SAP_HDR_MRP" Member="PUR_REQ_SAP_HDR_MRPs">
+    <Type Name="PUR_REQ_SAP_HDR_MRP">
+      <Column Name="PR_HDR_NO" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="SECTION" Type="System.Decimal" DbType="Decimal(3,0)" CanBeNull="true" />
+      <Column Name="ISSUE_DATE" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="ISSUE_BY" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="RECEIVE_DATE" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="OVERSEA_DOMESTIC" Type="System.Decimal" DbType="Decimal(1,0)" CanBeNull="true" />
+      <Column Name="PUR_NO" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="FLG" Type="System.Decimal" DbType="Decimal(1,0)" CanBeNull="true" />
+      <Column Name="RING_NO" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="CREATE_BY" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="REMARK" Type="System.String" DbType="NVarChar(300)" CanBeNull="true" />
+      <Column Name="URGENT" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.PUR_SECTION" Member="PUR_SECTIONs">
+    <Type Name="PUR_SECTION">
+      <Column Name="SECTION_CODE" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="SECTION_NAME" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="SEC_PR" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="LENGTH" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="CONTACT" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="ACCPAC_SECTION" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="ACCPAC_SECTION_NAME" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.PUR_STORAGE_LOCATION" Member="PUR_STORAGE_LOCATIONs">
+    <Type Name="PUR_STORAGE_LOCATION">
+      <Column Name="PLANT" Type="System.String" DbType="NChar(4)" CanBeNull="true" />
+      <Column Name="STORAGE_CODE" Type="System.String" DbType="NVarChar(4)" CanBeNull="true" />
+      <Column Name="STORAGE_NAME" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.PURCHASE_SUPPLIER" Member="PURCHASE_SUPPLIERs">
+    <Type Name="PURCHASE_SUPPLIER">
+      <Column Name="SUPPLIER_ID" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="SUPPLIER_NAME" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
+      <Column Name="ADDRESS" Type="System.String" DbType="NVarChar(300)" CanBeNull="true" />
+      <Column Name="ATTN" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="TEL" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="FAX" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="DOMESTIC_OVERSEA" Type="System.Decimal" DbType="Decimal(1,0)" CanBeNull="true" />
+      <Column Name="NATION" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="EMAIL" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="ACC_ID" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="BANK_NAME" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="NAME_BRIEF" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="STATUS" Type="System.Decimal" DbType="Decimal(10,0)" CanBeNull="true" />
+      <Column Name="PORT_OF_LOAD" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="PORT_OF_DISCHARGE" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="PARTIAL_SHIPMENT" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="DELIVERY_TERM" Type="System.String" DbType="NVarChar(3)" CanBeNull="true" />
+      <Column Name="PAYMENT_TERM" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="COMMODITY_CATEGORY" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="COUNTRY_OF_ORIGIN" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="SUPPLIER_RANK" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="TAX_NO" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="BP_CODE" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="SUPPLIER_SEARCH_SAP" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="PUR_DOC_TYPE" Type="System.String" DbType="NVarChar(4)" CanBeNull="true" />
+      <Column Name="PAYMENT_TERM_CODE" Type="System.String" DbType="NVarChar(4)" CanBeNull="true" />
+      <Column Name="INCOTERMS_LOCATION" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.PURCHASE_UNIT" Member="PURCHASE_UNITs">
+    <Type Name="PURCHASE_UNIT">
+      <Column Name="UNIT_ID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="UNIT_NAME" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.CIP" Member="CIPs">
+    <Type Name="CIP">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="DocumentHeaderText" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="GLAccount" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="Assignment" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="DocumentNumber" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="BusinessArea" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="DocumentType" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="DocumentDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="PostingDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="EntryDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="PostingKey" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="AmountinDocCurr" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="DocumentCurrency" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="AmountinLocalCurrency" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="LocalCurrency" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="TaxCode" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="ClearingDocument" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="ProfitCenter" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Segment" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Text" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="OffsettingAccount" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Vendor" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="PurchasingDocument" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Item" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Asset" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Quantity" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="BaseUnitofMeasure" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Status" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Material" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Function Name="dbo.GetParts" Method="GetParts">
+    <Parameter Name="ringNopara" Type="System.String" DbType="VarChar(MAX)" />
+    <ElementType Name="GetPartsResult">
+      <Column Name="PUCHASE_GROUP" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
+      <Column Name="STORAGE_LOCATION" Type="System.String" DbType="NVarChar(4)" CanBeNull="true" />
+      <Column Name="SHORT_TEXT" Type="System.String" DbType="NVarChar(300)" CanBeNull="true" />
+      <Column Name="QTY" Type="System.Decimal" DbType="Decimal(18,4)" CanBeNull="true" />
+      <Column Name="UNIT" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
+      <Column Name="NET_PRICE" Type="System.Decimal" DbType="Decimal(18,4)" CanBeNull="true" />
+      <Column Name="CUR" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
+      <Column Name="AMOUNT" Type="System.Decimal" DbType="Decimal(18,4)" CanBeNull="true" />
+      <Column Name="VENDOR" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
+      <Column Name="DELIVERY_DATE" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="PR_HDR_NO" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.GetParts2" Method="GetParts2">
+    <Parameter Name="ringNopara" Type="System.String" DbType="VarChar(MAX)" />
+    <ElementType Name="GetParts2Result">
+      <Column Name="PUCHASE_GROUP" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
+      <Column Name="STORAGE_LOCATION" Type="System.String" DbType="NVarChar(4)" CanBeNull="true" />
+      <Column Name="SHORT_TEXT" Type="System.String" DbType="NVarChar(300)" CanBeNull="true" />
+      <Column Name="QTY" Type="System.Decimal" DbType="Decimal(18,4)" CanBeNull="true" />
+      <Column Name="UNIT" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
+      <Column Name="NET_PRICE" Type="System.Decimal" DbType="Decimal(18,4)" CanBeNull="true" />
+      <Column Name="CUR" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
+      <Column Name="AMOUNT" Type="System.Decimal" DbType="Decimal(18,4)" CanBeNull="true" />
+      <Column Name="VENDOR" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
+      <Column Name="DELIVERY_DATE" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="PR_HDR_NO" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="PO_NO" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.GetTotalData" Method="GetTotalData">
+    <ElementType Name="GetTotalDataResult">
+      <Column Name="RingiNo" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="SECTION_CODE" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="ISSUE_DATE" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="PUCHASE_GROUP" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
+      <Column Name="STORAGE_LOCATION" Type="System.String" DbType="NVarChar(4)" CanBeNull="true" />
+      <Column Name="SHORT_TEXT" Type="System.String" DbType="NVarChar(300)" CanBeNull="true" />
+      <Column Name="QTY" Type="System.Decimal" DbType="Decimal(18,4)" CanBeNull="true" />
+      <Column Name="UNIT" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
+      <Column Name="NET_PRICE" Type="System.Decimal" DbType="Decimal(18,4)" CanBeNull="true" />
+      <Column Name="CUR" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
+      <Column Name="AMOUNT" Type="System.Decimal" DbType="Decimal(18,4)" CanBeNull="true" />
+      <Column Name="VENDOR" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
+      <Column Name="DELIVERY_DATE" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="PR_HDR_NO" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="RING_NO" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="PRNO_SAP_DTL" Type="System.Decimal" DbType="Decimal(3,0)" CanBeNull="true" />
+      <Column Name="PO_NO" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Item" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+</Database>

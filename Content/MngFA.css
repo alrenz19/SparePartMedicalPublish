@@ -1,0 +1,316 @@
+﻿.box-shadow1 {
+    box-shadow: 1px 3px 6px 0 rgba(0, 0, 0, 0.2), 0 3px 1px 0 rgba(0, 0, 0, 0.19);
+    margin-top: 1%;
+    margin-bottom: 1%;
+    margin-right: 1%;
+    padding: 0.5%;
+    background-color: white;
+    border-radius: 2px;
+    border-collapse: collapse;
+}
+
+.fixed-header {
+    position: sticky;
+    top: -1px;
+    background-color: white;
+    z-index: 100;
+}
+
+.box {
+    background: white;
+    box-shadow: 0 4px 8px 0 rgb(67 65 65 / 20%), 0 6px 20px 0 rgb(255 255 255 / 0%);
+    padding: 2px 0 2px 0;
+    width: 100%;
+    zoom: 96%;
+    padding: 0 15px 0 15px;
+    margin-bottom: 2px;
+    border-bottom: 2px solid #8cb6ca;
+}
+
+.btn-st1 {
+    color: white;
+    background: #607d8b;
+}
+.btn-st {
+    background: white;
+    border-radius:0px;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: #ececec;
+}
+
+input:required:invalid {
+    border-left: 2px solid #FF5722;
+    border-right: 2px solid #fa3c0075;
+}
+/*Style tag*/
+.NA {
+    color: red;
+    font-family: emoji;
+}
+.AddPart {
+    color: #4CAF50;
+    background-color: #4caf5029;
+    border-radius: 3px;
+    font-family: emoji;
+    padding: 4px;
+}
+
+.WaitingIQ {
+    color: #a66608;
+    background-color: #c4790c30;
+    border-radius: 3px;
+    font-family: emoji;
+    padding: 4px;
+}
+
+.FinishIQ {
+    color: #607D8B;
+    background-color: #62a7ca33;
+    border-radius: 3px;
+    font-family: emoji;
+    padding: 4px;
+}
+
+.Using {
+    color: #00a6bc;
+    background-color: #00bcd426;
+    border-radius: 3px;
+    font-family: emoji;
+    padding: 4px;
+}
+
+.StopUsing {
+    color: #858080;
+    background-color: #9e9e9e3d;
+    border-radius: 3px;
+    font-family: emoji;
+    padding: 4px;
+}
+
+.Shipping {
+    color: #c2129a;
+    background-color: #c2129a12;
+    border-radius: 3px;
+    font-family: emoji;
+    padding: 4px;
+}
+
+.Disposal {
+    color: #dea90f;
+    background-color: #cab50012;
+    border-radius: 3px;
+    font-family: emoji;
+    padding: 4px;
+}
+
+.Sale {
+    color: #cc9cab;
+    background-color: #feeaf0;
+    border-radius: 3px;
+    font-family: emoji;
+    padding: 4px;
+}
+
+.ChangeSection {
+    color: #a4ae41;
+    background-color: #a4ae4133;
+    border-radius: 3px;
+    font-family: emoji;
+    padding: 4px;
+}
+
+.ChangeLocation {
+    color: #E91E63;
+    background-color: #e91e631a;
+    border-radius: 3px;
+    font-family: emoji;
+    padding: 4px;
+}
+
+/*End Style tag*/
+.modalPopup {
+    /*            background-color: #FFFFFF;*/
+    height: auto;
+    padding: 30px;
+    /*        box-shadow: 2px 4px 6px #888888;*/
+}
+
+.modalBackground {
+    background-color: #000;
+    opacity: 0.7;
+    filter: alpha(opacity=70);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: none;
+}
+
+
+/* Modal background */
+.modalBackground1 {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent black background */
+}
+
+/* Modal content */
+.modalContent {
+    background-color: #fff;
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    border-radius: 5px;
+    position: relative;
+}
+
+/* Close button for the modal */
+.closeButton {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+}
+
+.selected-row {
+    background-color: #FFFFE0; /* Màu nền khi được chọn */
+    font-weight: bold; /* Độ đậm của văn bản khi được chọn */
+}
+
+.Default-row {
+    background-color: white; /* Màu nền khi được chọn */
+}
+
+.textStyle {
+    font-weight: 600;
+    color: #607D8B;
+}
+
+.classCheckboxtext {
+    background-color: white;
+    padding: 3px;
+    border: 1px solid #9e9e9e6e;
+}
+
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 50px;
+}
+
+.dropdown-menu {
+    min-width: 30px !important;
+}
+
+.BorderStyle {
+    border-radius: 1px !important;
+}
+
+.bold-first-two-char {
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+.IsInventory {
+    padding: 5px;
+    background-color: #00BCD4;
+    color: white;
+    border-radius: 5px;
+}
+
+.IsNotInventory {
+    padding: 5px;
+    background-color: #9e9e9e;
+    color: white;
+    border-radius: 5px;
+}
+
+.PaddingLeftRight {
+    padding-left: 0px;
+    padding-right: 0px;
+}
+
+.content {
+    opacity: 1; /* Mặc định hiển thị bình thường */
+    transition: opacity 0.5s ease; /* Hiệu ứng mờ */
+}
+
+.fixed-header {
+    position: sticky;
+    top: -1px;
+    background-color: white;
+    z-index: 100;
+}
+
+.content.blur {
+    opacity: 0.3; /* Nội dung mờ */
+}
+
+@media screen and (max-width: 720px) {
+    html {
+        scroll-behavior: smooth;
+        scroll-padding-top: 50px;
+        zoom: 60%;
+    }
+
+    .table > tbody > tr > td, .table > tbody > tr > th, .table > tfoot > tr > td, .table > tfoot > tr > th, .table > thead > tr > td, .table > thead > tr > th {
+        padding: 4px;
+        line-height: 1.42857143;
+        vertical-align: top;
+        border-top: 1px solid #ddd;
+    }
+}
+
+.text-decoration-line {
+    text-decoration-line: none;
+}
+
+#DivA {
+    display: none;
+    float: left;
+    width: 40%;
+    height: 100%;
+}
+
+#DivB {
+    float: left;
+    width: 100%;
+    height: 100%;
+}
+/*  #GridViewContainer {
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+        }
+       */
+#ButtonC {
+    margin-top: 10px;
+}
+
+    #ButtonC:hover {
+        text-decoration-line: none;
+    }
+
+.gridview-header {
+    position: sticky;
+    top: 0;
+    background-color: #f9f9f9;
+    z-index: 1;
+}
+.dropdown-menu {
+    border: 1px solid #9c640b;
+}
+.floatRight{
+    float:right;
+}

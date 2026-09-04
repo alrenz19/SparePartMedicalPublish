@@ -1,0 +1,39 @@
+﻿<!-- Nút mở modal -->
+<asp:Button runat="server" ID="btnOpenModal" Text="Mở Modal Tìm Kiếm"
+            CssClass="search_custom_open_button" OnClientClick="searchCustomOpenModal(); return false;" />
+
+<!-- Modal -->
+<div id="searchCustomModal" class="search_custom_modal">
+    <div id="searchCustomHeader" class="search_custom_header">
+        <h3 class="search_custom_title">Tìm Kiếm</h3>
+        <button class="search_custom_close" onclick="searchCustomCloseModal()">×</button>
+    </div>
+    <div class="search_custom_content">
+        <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+            <ContentTemplate>
+                <div class="search_custom_input_group">
+                    <asp:TextBox ID="txtSearch" runat="server" CssClass="search_custom_input"
+                                 placeholder="Nhập từ khóa tìm kiếm..."></asp:TextBox>
+                    <asp:Button ID="btnSearch" runat="server" Text="Tìm kiếm"
+                                CssClass="search_custom_button" OnClick="btnSearch_Click" />
+                </div>
+                <div class="search_custom_results">
+                    <asp:GridView ID="gvResults" runat="server" AutoGenerateColumns="False"
+                                  CssClass="search_custom_grid" Width="100%"
+                                  OnRowCommand="gvResults_RowCommand">
+                        <Columns>
+                            <asp:BoundField DataField="ID" HeaderText="Mã" />
+                            <asp:BoundField DataField="Name" HeaderText="Tên" />
+                            <asp:BoundField DataField="Description" HeaderText="Mô tả" />
+                            <asp:BoundField DataField="Price" HeaderText="Giá"
+                                            DataFormatString="{0:N0}" />
+                            <asp:ButtonField CommandName="Select" Text="Chọn"
+                                             ControlStyle-CssClass="search_custom_button" />
+                        </Columns>
+                    </asp:GridView>
+                </div>
+            </ContentTemplate>
+        </asp:UpdatePanel>
+    </div>
+</div>
+

@@ -1,0 +1,288 @@
+﻿html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: #ececec;
+}
+
+.borderRadius {
+    border-radius: 5px;
+}
+
+nav.navbar-fixed-bottom {
+    width: 70px;
+}
+
+.padding {
+    padding: 24px 5px 50px 10px !important;
+}
+
+.width100 {
+    width: 100% !important;
+}
+
+.title {
+    font-weight: 900;
+    padding: 0 !important;
+}
+
+.marginBottom5 {
+    margin-bottom: 5px;
+}
+
+.box-shadow1 {
+    box-shadow: 1px 3px 6px 0 rgba(0, 0, 0, 0.2), 0 3px 1px 0 rgba(0, 0, 0, 0.19);
+    margin-top: 1%;
+    margin-bottom: 1%;
+    margin-right: 1%;
+    padding: 0.5%;
+    background-color: white;
+    border-radius: 2px;
+    border-collapse: collapse;
+    /*  border: 1px solid black;*/
+}
+
+.box-shadow2 {
+    background-color: #ffffff;
+    box-shadow: 0px 0px 9px 0px rgba(0,0,0,0.1);
+    border-radius: 3px;
+    padding: 25px 30px;
+}
+
+.tt {
+    margin-top: 4%;
+}
+
+.number-label {
+    position: absolute;
+    background-color: #9E9E9E;
+    border: red;
+    color: white;
+    font-weight: bold;
+    height: 36px;
+    width: 26px;
+    z-index: 1;
+    margin: -2px;
+    border-radius: 10px 4px 30px 30px;
+    text-align: center;
+}
+
+.Paddingleft {
+    padding-left: 20px !important;
+    font-weight: 900;
+}
+
+.table > tbody > tr > td, .table > tbody > tr > th, .table > tfoot > tr > td, .table > tfoot > tr > th, .table > thead > tr > td, .table > thead > tr > th {
+    padding: 8px;
+    line-height: 1.42857143;
+    vertical-align: top;
+    border: none;
+}
+
+
+.tableBorder > tbody > tr > td, .tableBorder > tbody > tr > th, .tableBorder > tfoot > tr > td, .tableBorder > tfoot > tr > th, .tableBorder > thead > tr > td, .tableBorder > thead > tr > th {
+    padding: 8px;
+    line-height: 1.42857143;
+    vertical-align: top;
+    border: 1px solid #80808047;
+}
+
+.tableBorder > thead > tr > th, .tableBorder > tbody > tr > th, .tableBorder > tfoot > tr > th, .tableBorder > thead > tr > td, .tableBorder > tbody > tr > td, .tableBorder > tfoot > tr > td {
+    padding: 8px;
+    line-height: 1.42857143;
+    vertical-align: top;
+    border: 1px solid #80808047;
+}
+
+.tableBorder {
+    width: 100%;
+    max-width: 100%;
+    margin-bottom: 20px;
+}
+
+@media (max-width: 820px) {
+    .tt {
+        margin-top: 9%;
+    }
+
+    .width100 {
+        width: 100% !important;
+        height: 70% !important;
+        padding-bottom: 3px !important;
+        padding-top: 3px !important;
+    }
+
+    .table > tbody > tr > td, .table > tbody > tr > th, .table > tfoot > tr > td, .table > tfoot > tr > th, .table > thead > tr > td, .table > thead > tr > th {
+        padding: 5px;
+        line-height: 1.42857143;
+        vertical-align: top;
+        border: none;
+    }
+
+    .title {
+        font-weight: 900;
+        padding: 0 !important;
+    }
+
+    .number-label {
+        position: absolute;
+        background-color: #9E9E9E;
+        color: white;
+        font-weight: bold;
+        height: 28px;
+        width: 15px;
+        z-index: 1;
+        margin: -2px;
+        border-radius: 10px 4px 30px 30px;
+        text-align: center;
+    }
+}
+
+.floatLeft {
+    float: left;
+}
+
+.Using {
+    color: white;
+    background-color: #00BCD4;
+    border-radius: 5px;
+    font-family: emoji;
+    padding: 5px;
+}
+
+.Cancel {
+    color: white;
+    background-color: #9E9E9E;
+    border-radius: 5px;
+    font-family: emoji;
+    padding: 5px;
+}
+
+.Move {
+    color: white;
+    background-color: #6da7c4;
+    border-radius: 5px;
+    font-family: emoji;
+    padding: 5px;
+}
+
+@media screen and (-webkit-min-device-pixel-ratio: 0) {
+    .effects {
+        position: relative;
+        overflow: hidden;
+    }
+
+    .fallback {
+        opacity: 0;
+    }
+
+    .intro1 {
+        -webkit-animation: slidetop1 1s ease;
+        -webkit-transition-timing-function: linear;
+    }
+
+    .intro2 {
+        -webkit-animation: slidetop1 0.8s ease;
+        -webkit-transition-timing-function: linear;
+    }
+
+    @-webkit-keyframes slidetop1 {
+        0% {
+            -webkit-transform: translateY(-100px);
+        }
+
+        10% {
+            -webkit-transform: translateY(-90px);
+        }
+
+        100% {
+            -webkit-transform: translateY(0px);
+        }
+    }
+}
+/*Style tag*/
+
+.AddPart {
+    color: #4CAF50;
+    background-color: #4caf5029;
+    border-radius: 3px;
+    font-family: emoji;
+    padding: 4px;
+}
+
+.WaitingIQ {
+    color: #a66608;
+    background-color: #c4790c30;
+    border-radius: 3px;
+    font-family: emoji;
+    padding: 4px;
+}
+
+.FinishIQ {
+    color: #607D8B;
+    background-color: #62a7ca33;
+    border-radius: 3px;
+    font-family: emoji;
+    padding: 4px;
+}
+
+.Using {
+    color: #00a6bc;
+    background-color: #00bcd426;
+    border-radius: 3px;
+    font-family: emoji;
+    padding: 4px;
+}
+
+.StopUsing {
+    color: #858080;
+    background-color: #9e9e9e3d;
+    border-radius: 3px;
+    font-family: emoji;
+    padding: 4px;
+}
+
+.Shipping {
+    color: #c2129a;
+    background-color: #c2129a12;
+    border-radius: 3px;
+    font-family: emoji;
+    padding: 4px;
+}
+
+.Disposal {
+    color: #dea90f;
+    background-color: #cab50012;
+    border-radius: 3px;
+    font-family: emoji;
+    padding: 4px;
+}
+
+.Sale {
+    color: #cc9cab;
+    background-color: #feeaf0;
+    border-radius: 3px;
+    font-family: emoji;
+    padding: 4px;
+}
+
+.ChangeSection {
+    color: #a4ae41;
+    background-color: #a4ae4133;
+    border-radius: 3px;
+    font-family: emoji;
+    padding: 4px;
+}
+
+.ChangeLocation {
+    color: #E91E63;
+    background-color: #e91e631a;
+    border-radius: 3px;
+    font-family: emoji;
+    padding: 4px;
+}
+.btn-st {
+    color: white;
+    background: #607d8b;
+}

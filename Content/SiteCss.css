@@ -1,0 +1,239 @@
+﻿
+body {
+    padding: 0;
+}
+
+.center {
+    text-align: center;
+    vertical-align: middle;
+}
+
+.bottom {
+    margin-bottom: 5%;
+}
+
+.box-shadow {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    margin: 1%;
+    padding: 0.5%;
+    font-size: x-large;
+}
+
+.box-shadow1 {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    margin: 1%;
+    padding: 0.5%;
+}
+
+.hoverBtn :hover {
+    box-shadow: 0 4px 8px 0 rgb(157 244 255), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    text-decoration: none;
+}
+
+.list-group-item:last-child {
+    margin-bottom: 12px;
+    border-bottom-right-radius: 4px;
+    border-bottom-left-radius: 4px;
+}
+
+.colorhead {
+    color: #15bed3
+}
+
+.navbar-inverse .navbar-collapse, .navbar-inverse .navbar-form {
+    border-color: #00BCD4;
+}
+
+.navbar-inverse {
+    background-color: #56879e;
+    border-color: #607D8B;
+}
+
+    .navbar-inverse .navbar-nav > li > a {
+        color: #ffffff;
+    }
+
+    .navbar-inverse .navbar-nav > .active > a, .navbar-inverse .navbar-nav > .active > a:focus, .navbar-inverse .navbar-nav > .active > a:hover {
+        color: #fff;
+        background-color: #45b2c0;
+    }
+    /*Thu gọn*/
+    .navbar-inverse .navbar-toggle:focus, .navbar-inverse .navbar-toggle:hover {
+        background-color: #607D8B;
+    }
+
+    .navbar-inverse .navbar-toggle {
+        border-color: #8faebe;
+    }
+
+.borderColor {
+    border-color: red;
+}
+
+.green {
+    background: green
+}
+
+.red {
+    background: red
+}
+
+.blue {
+    background: blue
+}
+
+.margin-top {
+    padding-top: 15px;
+}
+
+.radius {
+    border: 1px solid #00bcd4;
+    padding: 10px;
+    border-radius: 2em / 5em;
+}
+
+#menu {
+    position: fixed;
+    right: 0;
+    top: 25%;
+    width: 8em;
+    margin-top: -2.5em;
+    margin-right: 5%;
+}
+
+.menuRigth {
+    position: fixed;
+    right: 0;
+    width: 25%;
+    height: 85%;
+    background-color: #607d8b5e;
+    margin-top: -8em;
+    overflow-y: scroll;
+    /*    margin-top: -2.5em;
+*/
+}
+
+#MenuHistory {
+    position: fixed;
+    right: 0;
+    width: 30%;
+    height: 85%;
+    margin-top: -8em;
+    overflow-y: scroll;
+    z-index: 1;
+    top: 50%;
+}
+
+#menuCheckSheet {
+    position: fixed;
+    right: 0;
+    top: 25%;
+    width: 8em;
+    margin-top: -2.5em;
+    margin-right: 12%;
+}
+
+#ddCheckSheet {
+    position: fixed;
+    top: 12%;
+    left: 5%;
+    width: 8em;
+    margin-top: -2.5em;
+}
+
+#dlCheckSheet {
+    border: 1px solid black;
+}
+
+.btn-style {
+    color: #f3e9ee;
+    background-color: #00BCD4;
+    border-color: #ccc;
+}
+
+    .btn-style:hover {
+        font-size: large;
+        text-align: left;
+    }
+
+.bModal {
+    background-color: #cddbdf;
+    opacity: 0.6;
+    filter: alpha(opacity=60);
+}
+
+.modalContent {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    width: 400px;
+    padding: 2px 4px;
+    border-radius: 3px;
+}
+
+.modalHandle {
+    cursor: move;
+    height: 18px;
+    padding: 2px 4px;
+    font-weight: bold;
+}
+
+.closeModal {
+    background-color: #607D8B;
+    color: #fff;
+    font-weight: bold;
+    border: 0;
+}
+
+.ImgbRadius {
+    border-radius: 100px;
+    border: 1px solid #65d3e1;
+}
+
+.lbkEdit {
+    float: right;
+    font-size: larger;
+}
+
+
+/**** stylePaging *****/
+.pagination-ys table > tbody > tr > td > span {
+    position: relative;
+    float: left;
+    padding: 8px 12px;
+    line-height: 1.42857143;
+    text-decoration: none;
+    margin-left: -1px;
+    z-index: 2;
+    color: BLACK;
+    background-color: darkgray;
+    border-color: #dddddd;
+    cursor: default;
+}
+
+.pagination-ys table > tbody > tr > td:first-child > a,
+.pagination-ys table > tbody > tr > td:first-child > span {
+    margin-left: 0;
+    border-bottom-left-radius: 4px;
+    border-top-left-radius: 4px;
+}
+
+.pagination-ys table > tbody > tr > td:last-child > a,
+.pagination-ys table > tbody > tr > td:last-child > span {
+    border-bottom-right-radius: 6px;
+    border-top-right-radius: 6px;
+}
+
+.pagination-ys table > tbody > tr > td > a {
+    padding: 10px;
+}
+
+    .pagination-ys table > tbody > tr > td > a:hover,
+    .pagination-ys table > tbody > tr > td > span:hover,
+    .pagination-ys table > tbody > tr > td > a:focus,
+    .pagination-ys table > tbody > tr > td > span:focus {
+        color: #97310e;
+        background-color: #eeeeee;
+        border-color: #dddddd;
+        text-decoration: underline;
+        border: 1px solid darkgray;
+    }

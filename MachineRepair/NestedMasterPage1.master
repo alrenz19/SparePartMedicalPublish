@@ -1,0 +1,212 @@
+﻿<%@ Master Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="NestedMasterPage1.master.cs" Inherits="QlyMain.MachineRepair.NestedMasterPage1" %>
+
+<asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('body').addClass('sidebar-collapse');
+        });
+    </script>
+
+    <style>
+        .is-selected {
+            background-color: #ecf0f5;
+            font-weight: bold;
+            border: 1px solid green;
+        }
+    </style>
+
+    <link href="../../Content/toastr.min.css" rel="stylesheet" />
+    <script src="../../Scripts/toastr.min.js"></script>
+
+    <section class="content-header">
+        <h1>Machine Repair Requests <small></small></h1>
+        <ol class="breadcrumb">
+            <li><a href="~/index.aspx" runat="server"><i class="fa fa-dashboard"></i>Home</a></li>
+            <li>Repair Requests</li>
+        </ol>
+    </section>
+
+
+    <div class="content">
+        <div class="row">
+            <div class="col-md-12  col-sm-12">
+                <table style="width: 100%">
+                    <tr>
+                        <td>Select Department:
+                    <br />
+                            <asp:DropDownList ID="ddlColDiv" runat="server" AutoPostBack="True" OnSelectedIndexChanged="ddlColDiv_SelectedIndexChanged"
+                                CssClass="form-control">
+                            </asp:DropDownList>
+                        </td>
+                        <td>Section
+                    <br />
+                            <asp:DropDownList ID="ddlColSec" runat="server" CssClass="form-control"></asp:DropDownList>
+                        </td>
+                        <td>
+                            <br />
+                            <asp:Button Text="Filter" runat="server" ID="btnFilter" OnClick="btnFilter_Click" CssClass="btn btn-success btn-flat btn-sm" />
+                        </td>
+                        <td>
+                        <td style="float: right">
+                            <br />
+                            <asp:LinkButton ID="lbtAdd" runat="server" Text="Add New" OnClick="lbtAdd_Click" CssClass="btn btn-success btn-sm">
+<span class="glyphicon glyphicon-plus"></span> Create Repair Request
+                            </asp:LinkButton>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <br />
+        <div class="row">
+            <div class="col-md-2">
+                <div class="box box-solid">
+                    <div class="box-header with-border">
+                        <h3 class="box-title">Filter Request Status</h3>
+
+                        <div class="box-tools">
+                            <button type="button" class="btn btn-box-tool" data-widget="collapse">
+                                <i class="fa fa-minus"></i>
+                            </button>
+                            <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+                        </div>
+                    </div>
+                    <!-- /.box-header -->
+                    <div class="box-body no-padding" style="display: block;">
+                        <ul class="nav nav-pills nav-stacked">
+                            <li>
+                                <asp:LinkButton runat="server" ID="LinkButtonRequested" OnClick="LinkButtonRequested_Click" CssClass="Requested" ToolTip="Newly created requests waiting for maintenance to repair">
+                                    <i class="fa fa-circle-o text-red"></i>
+                                    Repair Requests <span class="label label-danger pull-right">
+                                        <asp:Label ID="lblRequested" Text="0" runat="server" />
+                                    </span>
+                                </asp:LinkButton></li><li>
+                                <asp:LinkButton runat="server" ID="LinkButtonConfirmed" OnClick="LinkButtonConfirmed_Click"
+                                    ToolTip="Production confirmed maintenance has arrived and machine is being repaired."
+                                    CssClass="Confirmed">
+                                    <i class="fa fa-circle-o text-yellow"></i>
+                                    Repair Confirmed <span class="label label-warning pull-right">
+                                        <asp:Label ID="lblConfirmed" Text="0" runat="server" />
+                                    </span>
+
+                                </asp:LinkButton></li><li>
+                                <asp:LinkButton runat="server" ID="LinkButtonFixed" OnClick="LinkButtonFixed_Click"
+                                    ToolTip="Maintenance has completed repairs and is waiting for leader confirmation."
+                                    CssClass="Fixed">
+                                    <i class="fa fa-circle-o text-light-blue"></i>
+                                    Maintenance Completed 
+                                   <span class="label label-warning pull-right">
+                                       <asp:Label ID="lblFixed" Text="0" runat="server" />
+                                   </span>
+                                </asp:LinkButton></li><li>
+                                <asp:LinkButton runat="server" ID="LinkButtonMaintLeaderConfirmed" OnClick="LinkButtonMaintLeaderConfirmed_Click"
+                                    ToolTip="Maintenance Leader has confirmed the counter-check and repair status. Requesting department should confirm how the machine was repaired."
+                                    CssClass="MaintLeaderConfirmed">
+                                    <i class="fa fa-circle-o text-light-blue"></i>
+                                    Awaiting Production Confirmation
+                                   <span class="label label-default pull-right">
+                                       <asp:Label ID="lblLeaderConfirmed" Text="0" runat="server" />
+                                   </span>
+                                </asp:LinkButton></li><li>
+                                <asp:LinkButton runat="server" ID="LinkButtonCompleted" OnClick="LinkButtonCompleted_Click" CssClass="Completed">
+                                    <i class="fa fa-circle-o text-light-blue"></i>
+                                    Production Confirmed Counter-Check
+                                    <span class="label label-default pull-right">
+                                        <asp:Label ID="lblCompleted" Text="0" runat="server" />
+                                    </span>
+                                </asp:LinkButton></li><li>
+                                <asp:LinkButton runat="server" ID="LinkButtonPending" OnClick="LinkButtonPending_Click" CssClass="Pending">
+                                    <i class="fa fa-circle-o text-light-blue"></i>
+                                    Machine Stopped - Awaiting Parts
+                                  <span class="label label-default pull-right">
+                                      <asp:Label ID="lblPending" Text="0" runat="server" />
+                                  </span>
+                                </asp:LinkButton></li><li>
+                                <asp:LinkButton runat="server" ID="LinkButtonCancel" OnClick="LinkButtonCancel_Click">
+                                    <i class="fa fa-circle-o text-light-blue"></i>
+                                    Canceled Requests
+                                  <span class="label label-default pull-right">
+                                      <asp:Label ID="lblCancel" Text="0" runat="server" />
+                                  </span>
+                                </asp:LinkButton></li><li>
+
+                            <li>
+                                <asp:LinkButton runat="server" ID="LinkButtonDoiSachLauDai" OnClick="LinkButtonDoiSachLauDai_Click">
+                                    <i class="fa fa-circle-o text-light-blue"></i>
+                                    Counter-Check Tracking
+        <span class="label label-default pull-right">
+            <asp:Label ID="LabelDoiSach" Text="0" runat="server" />
+        </span>
+                                </asp:LinkButton></li><li>
+                                <asp:LinkButton runat="server" ID="LinkButtonAll" OnClick="LinkButtonAll_Click" CssClass="All">
+                                    <i class="fa fa-circle-o text-light-blue"></i>
+                                    All Requests
+                                    <span class="label label-default pull-right">
+                                        <asp:Label ID="lblAll" Text="0" runat="server" />
+                                    </span>
+                                </asp:LinkButton></li></ul></div><!-- /.box-body --></div></div><div class="col-md-10">
+                <asp:ContentPlaceHolder ID="MainContent2" runat="server">
+                </asp:ContentPlaceHolder>
+            </div>
+        </div>
+    </div>
+    <asp:HiddenField ID="HiddenFieldStatus" runat="server" />
+
+    <asp:Literal ID="Literal1" runat="server"></asp:Literal><script>
+    document.addEventListener('DOMContentLoaded', function () {
+        // Function to get URL parameters
+        function getUrlParameter(name) {
+            name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
+            var regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
+            var results = regex.exec(location.search);
+            return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
+        }
+
+        // Get the value of the 'status' parameter
+        const status = getUrlParameter('status');
+
+        // Check status values and apply active class styling
+        if (status === 'Requested') {
+            const elements = document.querySelectorAll('.Requested');
+            elements.forEach(element => {
+                element.classList.add('is-selected');
+            });
+        }
+        if (status === 'Confirmed') {
+            const elements = document.querySelectorAll('.Confirmed');
+            elements.forEach(element => {
+                element.classList.add('is-selected');
+            });
+        }
+        if (status === 'Fixed') {
+            const elements = document.querySelectorAll('.Fixed');
+            elements.forEach(element => {
+                element.classList.add('is-selected');
+            });
+        }
+        if (status === 'MaintLeaderConfirmed') {
+            const elements = document.querySelectorAll('.MaintLeaderConfirmed');
+            elements.forEach(element => {
+                element.classList.add('is-selected');
+            });
+        }
+        if (status === 'Completed') {
+            const elements = document.querySelectorAll('.Completed');
+            elements.forEach(element => {
+                element.classList.add('is-selected');
+            });
+        }
+        if (status === 'Pending') {
+            const elements = document.querySelectorAll('.Pending');
+            elements.forEach(element => {
+                element.classList.add('is-selected');
+            });
+        }
+        if (status === '') {
+            const elements = document.querySelectorAll('.All');
+            elements.forEach(element => {
+                element.classList.add('is-selected');
+            });
+        }
+    });
+    </script></asp:Content>

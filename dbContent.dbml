@@ -1,0 +1,993 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="QlyMaint" Class="dbContentDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="WebSettings" ConnectionString="Data Source=172.16.33.123;Initial Catalog=QlyMaint;User ID=aih;Max Pool Size=20000;Connect Timeout=0" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="QlyMaintConnectionString1" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.InHistory" Member="InHistories">
+    <Type Name="InHistory">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="PartID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="QuantityInOld" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="QuantityInNew" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CreatedDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="CreatedBy" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="month" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="year" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="STT" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="InputID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Quantity" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tbl_AllHistory" Member="tbl_AllHistories">
+    <Type Name="tbl_AllHistory">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="Event" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="UserCode" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="date" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Input" Member="Inputs">
+    <Type Name="Input">
+      <Column Name="InputID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="PartID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="UserID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Quantity" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="InputDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Remark" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="QuantityInStockBefore" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="QuantityInStockAfter" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CreatedDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="CreatedBy" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="ModifiedDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="ModifiedBy" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="month" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="year" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="STT" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="now" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Loacation" Member="Loacations">
+    <Type Name="Loacation">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Status" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.OutHistory" Member="OutHistories">
+    <Type Name="OutHistory">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="PartID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="QuantityOutOld" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="QuantityOutNew" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CreatedDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="CreatedBy" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="month" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="year" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="STT" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="OutputID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Quantity" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="HistoryLink" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="Date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Output" Member="Outputs">
+    <Type Name="Output">
+      <Column Name="OutputID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="MachineID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="PartID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="UserID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Quantity" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="OutputDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="OutputBy" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="PersonReceive" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="StatusUsing" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="QuantityInStockBefore" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="QuantityInStockAfter" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Remark" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="CreatedDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="CreatedBy" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="ModifiedDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="ModifiedBy" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Cost" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="TotalCost" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="Currency" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="month" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="year" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="STT" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="now" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Part" Member="Parts">
+    <Type Name="Part">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Partname" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Qty" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Unit" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="UnitPrice" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Currency" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Amount" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Supplier" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="RequestETA" Type="System.DateTime" DbType="DateTime2" CanBeNull="true" />
+      <Column Name="ETA" Type="System.DateTime" DbType="DateTime2" CanBeNull="true" />
+      <Column Name="PRNo" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="PONo" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Item" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="IQ" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Remark" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Status" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.PartInRingi" Member="PartInRingis">
+    <Type Name="PartInRingi">
+      <Column Name="RingiId" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="PartId" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Ringi" Member="Ringis">
+    <Type Name="Ringi">
+      <Column Name="RingId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="BudgetNo" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="RingiNo" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="MCName" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="FACategoryId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="SectionId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="LoacationId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IQ" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Remark" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="Status" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Roles" Member="Roles">
+    <Type Name="Role">
+      <Column Name="Role_Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="RoleName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Description" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Association Name="Role_User" Member="Users" ThisKey="Role_Id" OtherKey="RoleId" Type="User" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Spare_Part" Member="Spare_Parts">
+    <Type Name="Spare_Part">
+      <Column Name="PartID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="PositionSave" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
+      <Column Name="PartName" Type="System.String" DbType="NVarChar(450)" CanBeNull="true" />
+      <Column Name="Maker" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
+      <Column Name="Model" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
+      <Column Name="ItemCode" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="PictureURL" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="SafetyStock" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="LeadTime" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="MOQ_SPQ" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
+      <Column Name="Cost" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="Currency" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Quantity" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="PartNo" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
+      <Column Name="Supplier" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
+      <Column Name="Remark" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="IsUsing" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="IsOrder" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="CreatedDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="CreatedBy" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="ModifiedDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="ModifiedBy" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Type" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Unit" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Id_CodeMachine" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="PictureName" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="QtyStock" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ListCodeMachine" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="UserCode" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Sec" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="idTypeSP" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="TypeSP" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="SafetyStockShow" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
+      <Column Name="Date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="STT" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Price" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="SafetyStockRemark" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="OrderQty" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="Spare_Part_SparePartForRepair" Member="SparePartForRepairs" ThisKey="PartID" OtherKey="SparepartID" Type="SparePartForRepair" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tbl_AuditFA" Member="tbl_AuditFAs">
+    <Type Name="tbl_AuditFA">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="idFA" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="SapCode" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Machine" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="UserCode" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="MdfDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Alias" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tbl_CheckSheet" Member="tbl_CheckSheets">
+    <Type Name="tbl_CheckSheet">
+      <Column Name="id_CheckSheet" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ContentCheckSheet" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="Method" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="MachineName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="id_CodeMachine" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Type" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
+      <Column Name="id_CS_SCRUBBER" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tbl_CheckSheet_SCRUBBER" Member="tbl_CheckSheet_SCRUBBERs">
+    <Type Name="tbl_CheckSheet_SCRUBBER">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Contents" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="CodeMachine" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="idCodeMachine" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Type" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
+      <Column Name="Status" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tbl_CheckSheetHT" Member="tbl_CheckSheetHTs">
+    <Type Name="tbl_CheckSheetHT">
+      <Column Name="id_checkSheetHT" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="CheckSheetURL" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="id_codeMachine" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CheckSheetName" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="ModifyBy" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="ModifyDate" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tbl_ChildCheckSheet" Member="tbl_ChildCheckSheets">
+    <Type Name="tbl_ChildCheckSheet">
+      <Column Name="id_ChildCheckSheet" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ChildContent" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="ID_CheckSheet" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ChilName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tbl_CodeMachine" Member="tbl_CodeMachines">
+    <Type Name="tbl_CodeMachine">
+      <Column Name="id_CodeMachine" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="CodeMachine" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Status" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Type" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="MachineName" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="[Group]" Member="Group" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tbl_CommonCheckSheet" Member="tbl_CommonCheckSheets">
+    <Type Name="tbl_CommonCheckSheet">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ID_CheckSheet" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ID_DateCheckSheet" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tbl_DataSendMail" Member="tbl_DataSendMails">
+    <Type Name="tbl_DataSendMail">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="idPart" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="PartName" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="Model" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="ItemCode" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="UserCode" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="SafetyStock" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="OldSafetyStock" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tbl_DataSendMailDetail" Member="tbl_DataSendMailDetails">
+    <Type Name="tbl_DataSendMailDetail">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="idPart" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="PartName" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="Model" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="ItemCode" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="UserCode" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="SafetyStock" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="idListData" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="OldSafetyStock" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tbl_DateCheckSheet" Member="tbl_DateCheckSheets">
+    <Type Name="tbl_DateCheckSheet">
+      <Column Name="ID_Date" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="DateNumber" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CheckedBy" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="ConfirmedBy" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="id_ChildCheckSheet" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DateCurrent" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="DateContent" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
+      <Column Name="id_MachineName" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IsSave" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="MonthCheck" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="YearCheck" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="idCheckSheet" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tbl_Div" Member="tbl_Divs">
+    <Type Name="tbl_Div">
+      <Column Name="int_Div" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Div" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="STT" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tbl_EditSP_Manual" Member="tbl_EditSP_Manuals">
+    <Type Name="tbl_EditSP_Manual">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="UserCode" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="QtyOld" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="QtyNew" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Type" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="DateChange" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="DateCreate" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="PartID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tbl_EmailReceive" Member="tbl_EmailReceives">
+    <Type Name="tbl_EmailReceive">
+      <Column Name="id_Receive" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="InboxContent" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="ID_UserSent" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ID_UserReceive" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Status" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Title" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="ReceiveDate" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="UserNameReceive" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="UserNameSent" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tbl_EmailSend" Member="tbl_EmailSends">
+    <Type Name="tbl_EmailSend">
+      <Column Name="id_EmailSend" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="SentContent" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="Status" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="id_UserSent" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="id_UserReceive" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Title" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="SentDate" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="UserNameSent" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="UserNameReceive" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tbl_FAFiles" Member="tbl_FAFiles">
+    <Type Name="tbl_FAFile">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="id_FA" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="URL" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="MdfDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="UserCode" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tbl_FAHistory" Member="tbl_FAHistories">
+    <Type Name="tbl_FAHistory">
+      <Column Name="HistoryID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ItemID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ProfitCenter" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="ProfitCenterName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Location" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="DeprStartDate" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="ReceivedAmount" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="BookAmount" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="MdfDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="MdfBy" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="MdfReason" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="PreviousState" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="NewState" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="SapCode" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="UpdateDate" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Status" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Remark" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="SectionStockCheck" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tbl_FAInventory" Member="tbl_FAInventories">
+    <Type Name="tbl_FAInventory">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="InventoryID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Asset_Class" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="SAP_code" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Asset_Name" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="Name2" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Original_Asset" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="SerialNumber" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="ProfitCenter" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="ProfitCenterName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Location" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="DeprStartDate" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="ReceivedAmount" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="BookAmount" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Status" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="DateMdf" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Remark" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="RingNo" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="Invoice" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="lifeTimeYear" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
+      <Column Name="lifeTimeMonth" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
+      <Column Name="Phase" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Section" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="SectionStockCheck" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="State" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="UserCode" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="idFA" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tbl_FAInventoryMng" Member="tbl_FAInventoryMngs">
+    <Type Name="tbl_FAInventoryMng">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="InventoryCode" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="InventoryName" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="DateCreate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="UserCode" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Div" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Number" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="State" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="SectionStockCheck" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tbl_handInputSP_History" Member="tbl_handInputSP_Histories">
+    <Type Name="tbl_handInputSP_History">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Qty" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
+      <Column Name="Alias" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
+      <Column Name="UserCode" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="DateInput" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
+      <Column Name="DateCreate" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="PartID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tbl_LienLac" Member="tbl_LienLacs">
+    <Type Name="tbl_LienLac">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="NoidungLienLac" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="Title" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="date" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="UserCode" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="IsImportant" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tbl_ListCheck" Member="tbl_ListChecks">
+    <Type Name="tbl_ListCheck">
+      <Column Name="id_lc" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="CheckName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Status" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tbl_ListData" Member="tbl_ListDatas">
+    <Type Name="tbl_ListData">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ListID" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="Tile" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Comment" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="SendDate" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="UserCode" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="IdUserConfirmApprove" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="SignMadeBy" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="SignConfirm" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="SignApprove" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="IsStatus" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="NoteStatus" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tbl_LoaiSuCo" Member="tbl_LoaiSuCos">
+    <Type Name="tbl_LoaiSuCo">
+      <Column Name="int_suco" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="LoaiSuCo" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Mota" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tbl_Manunal" Member="tbl_Manunals">
+    <Type Name="tbl_Manunal">
+      <Column Name="id_Manunal" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ManunalURL" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="id_CodeMachine" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ManunalName" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="ModifyBy" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="ModifyDate" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="Date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tbl_multipleIMG" Member="tbl_multipleIMGs">
+    <Type Name="tbl_multipleIMG">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="multipleIMGName" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="multipleIMGURL" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="idHistory" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="alias" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tbl_OrderHistory" Member="tbl_OrderHistories">
+    <Type Name="tbl_OrderHistory">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="PartID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="OrderQty" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="OrderDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="OrderUser" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="dateMdf" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Status" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="InputOld" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="OrderOld" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tbl_OrderHistoryDetail" Member="tbl_OrderHistoryDetails">
+    <Type Name="tbl_OrderHistoryDetail">
+      <Column Name="id_detail" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="PartID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="InOld" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="InNew" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="OrderQtyOld" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="OrderUser" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="dateMdf" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Status" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="TotalOrderOld" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="TotalOrderNew" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Month" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
+      <Column Name="Year" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tbl_Place" Member="tbl_Places">
+    <Type Name="tbl_Place">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Place" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tbl_Plan" Member="tbl_Plans">
+    <Type Name="tbl_Plan">
+      <Column Name="id_Plan" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="PlanURL" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="Status" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="id_CodeMachine" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="PlanName" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="ModifyBy" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="ModifyDate" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="Date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tbl_QtySparePart" Member="tbl_QtySpareParts">
+    <Type Name="tbl_QtySparePart">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="QtyInput" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="QtyOutput" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="QtyStock" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="month" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="year" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="PartID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="STT" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="QtyStockOld" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="QtyStockNew" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="OrderQty" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Status" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="OrderDate" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="OrderStatus" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="GapInput" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="TotalOrderOfMonth" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tbl_SafetyStockHistory" Member="tbl_SafetyStockHistories">
+    <Type Name="tbl_SafetyStockHistory">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="SafetyStockOld" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="SafetyStockNew" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="UserCode" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="UserName" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="DateMdf" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Status" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="PartName" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="Model" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="idPart" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="PictureURL" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tbl_Scheduler" Member="tbl_Schedulers">
+    <Type Name="tbl_Scheduler">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="idMachine" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DueDate" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="PIC" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Remark" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="isStatus" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="UserCode" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Place" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="SecDiv" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tbl_Sec" Member="tbl_Secs">
+    <Type Name="tbl_Sec">
+      <Column Name="id_Sec" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Sec" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="id_Div" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tbl_SOP" Member="tbl_SOPs">
+    <Type Name="tbl_SOP">
+      <Column Name="id_SOP" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="SOP_URL" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="status" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="id_CodeMachine" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="SOPName" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="ModifyBy" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="ModifyDate" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="Datetime" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tbl_SparePart_Machine" Member="tbl_SparePart_Machines">
+    <Type Name="tbl_SparePart_Machine">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="idSparepart" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="idMachine" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="SPName" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="Model" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="MachineName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="SP_Model" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="Date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tbl_Status_SP" Member="tbl_Status_SPs">
+    <Type Name="tbl_Status_SP">
+      <Column Name="int_ST" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="[IN]" Member="IN" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="OUT" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Stock" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="int_Spare_part" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tbl_Tracking" Member="tbl_Trackings">
+    <Type Name="tbl_Tracking">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="IDListData" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="UserId" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Type" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="LastModifiedDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="IsConfirmed" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Sign" Type="System.String" DbType="Text" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="SendFromUserId" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Alias" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tbl_TypeSP" Member="tbl_TypeSPs">
+    <Type Name="tbl_TypeSP">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="NameSP" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.UserActivation" Member="UserActivations">
+    <Type Name="UserActivation">
+      <Column Name="UserId" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="ActivationCode" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tbl_History" Member="tbl_Histories">
+    <Type Name="tbl_History">
+      <Column Name="id_History" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Problem" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="Reason" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="Handling" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="BeforeTime" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="AfterTime" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Repairer" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Remark" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="CodeMachineID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Status" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CreatedDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="CodeProblem" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="RepairTime" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="DivSec" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="CreatedMonth" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
+      <Column Name="CreatedYear" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
+      <Column Name="Datetime" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="ShortTerm" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="IsShort" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="LongTerm" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="IsLong" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="StateWhenFound" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="StepCheckAndConfirm" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="LinkModel" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Users" Member="Users">
+    <Type Name="User">
+      <Column Name="Id_User" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="UserCode" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="UserName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Password" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="FullName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="ImageSignature" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
+      <Column Name="UserStatus" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="CreateDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="LastLoginDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="RoleId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ImageSignatureName" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="Email" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="IsStatus" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="NameMail" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Token" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="ExpiryMailDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Sec" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="DepartmentID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="Role_User" Member="Role" ThisKey="RoleId" OtherKey="Role_Id" Type="Role" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tbl_FAList" Member="tbl_FALists">
+    <Type Name="tbl_FAList">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Asset_Class" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="SAP_code" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="Asset_Name" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="Name2" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="Original_Asset" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="SerialNumber" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="ProfitCenter" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="ProfitCenterName" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="Location" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="DeprStartDate" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="ReceivedAmount" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="BookAmount" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="Status" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="DateMdf" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="Remark" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="RingNo" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="Invoice" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="lifeTimeYear" Type="System.String" DbType="NChar(310)" CanBeNull="true" />
+      <Column Name="lifeTimeMonth" Type="System.String" DbType="NChar(310)" CanBeNull="true" />
+      <Column Name="Phase" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Section" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="QRcodeOrNot" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="SectionStockCheck" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="State" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="UserCode" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="InventoryDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Alias" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="RingNo2" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="InventoryDateNew" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="IsDel" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tbl_RegistrationScheduleCali" Member="tbl_RegistrationScheduleCalis">
+    <Type Name="tbl_RegistrationScheduleCali">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="RegDate" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="RegContent" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="MeasuringNo" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="idMLCali" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Status" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="Times" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tbl_MasterListCali" Member="tbl_MasterListCalis">
+    <Type Name="tbl_MasterListCali">
+      <Column Name="idME" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="MEName" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="MECode" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="MachineName" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="MachineCode" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="TypeCal" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="CalFreq" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
+      <Column Name="ValidTo" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="PossibleMeasuringRange" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="Model" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="SerialNo" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="AccuracyOfMaker" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="Resolution" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="Maker" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="UsingMeasuringRange" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="ToleranceOfProducts" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="AccuracyControl" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="VerificationPoints" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="VerificationStandard" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="VerificationReportFormat" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="StartDate" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="RegisteredDate" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="InstalledPlace" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="Status" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="CalRange" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="High1" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="Moderate" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="Low1" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="High2" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="Low2" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="Hard" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="Easy" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="Total" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="FrequencyObtained" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="AssetNo" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="TimeOfExecution" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="CreateDate" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.SparePartForRepair" Member="SparePartForRepairs">
+    <Type Name="SparePartForRepair">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="SparepartID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="MaintenanceRepairID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="CreateDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="Spare_Part_SparePartForRepair" Member="Spare_Part" ThisKey="SparepartID" OtherKey="PartID" Type="Spare_Part" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tbl_FactoryType" Member="tbl_FactoryTypes">
+    <Type Name="tbl_FactoryType">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Function Name="dbo.Validate_User" Method="Validate_User">
+    <Parameter Name="Code" Parameter="code" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="Password" Parameter="password" Type="System.String" DbType="NVarChar(50)" />
+    <ElementType Name="Validate_UserResult">
+      <Column Name="UserId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Roles" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="userCode" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="FullName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="UserName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Role_Id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.GetJoinedData" Method="GetJoinedData">
+    <ElementType Name="GetJoinedDataResult">
+      <Column Name="Asset_ClassOld" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="Asset_Class" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="SAP_codeOld" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="SAP_code" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Asset_NameOld" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="Asset_Name" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="Name2Old" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="Name2" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Original_AssetOld" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="Original_Asset" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="SerialNumberOld" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="SerialNumber" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="ProfitCenterOld" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="ProfitCenter" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="ProfitCenterNameOld" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="ProfitCenterName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="LocationOld" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="Location" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="DeprStartDateOld" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="DeprStartDate" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="ReceivedAmountOld" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="ReceivedAmount" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="BookAmountOld" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="BookAmount" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="RemarkOld" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="Remark" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="idFA" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="idInv" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.GetDistinctModels" Method="GetDistinctModels">
+    <ElementType Name="GetDistinctModelsResult">
+      <Column Name="Model" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.GetSparePartQty" Method="GetSparePartQty">
+    <Parameter Name="fromYear" Type="System.Int32" DbType="Int" />
+    <Parameter Name="toYear" Type="System.Int32" DbType="Int" />
+    <Parameter Name="fromMonth" Type="System.Int32" DbType="Int" />
+    <Parameter Name="toMonth" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Model" Parameter="model" Type="System.String" DbType="NVarChar(50)" />
+    <ElementType Name="GetSparePartQtyResult">
+      <Column Name="PartID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="PartName" Type="System.String" DbType="NVarChar(450)" CanBeNull="true" />
+      <Column Name="Model" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
+      <Column Name="ItemCode" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="SafetyStock" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="year" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="month" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="STT" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="QtyOutput" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.GetSparePartsSummary" Method="GetSparePartsSummary" IsComposable="true">
+    <Parameter Name="yearNow" Type="System.Int32" DbType="Int" />
+    <Parameter Name="STT" Parameter="sTT" Type="System.Int32" DbType="Int" />
+    <Return Type="object" />
+  </Function>
+  <Function Name="dbo.GetSparePartsSummary2" Method="GetSparePartsSummary2" IsComposable="true">
+    <Parameter Name="yearNow" Type="System.Int32" DbType="Int" />
+    <Parameter Name="STT" Parameter="sTT" Type="System.Int32" DbType="Int" />
+    <Return Type="object" />
+  </Function>
+  <Function Name="dbo.GetSpareParts" Method="GetSpareParts">
+    <Parameter Name="yearNow" Type="System.Int32" DbType="Int" />
+    <Parameter Name="STT" Parameter="sTT" Type="System.Int32" DbType="Int" />
+    <ElementType Name="GetSparePartsResult">
+      <Column Name="PartID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="PartName" Type="System.String" DbType="NVarChar(450)" CanBeNull="true" />
+      <Column Name="PositionSave" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
+      <Column Name="Maker" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
+      <Column Name="Model" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
+      <Column Name="ItemCode" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="SafetyStock" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="SafetyStockShow" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
+      <Column Name="LeadTime" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="MOQ_SPQ" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
+      <Column Name="QtyStock" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="OrderQty" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Quantity" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Remark" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="Sec" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="CreatedDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="CreatedBy" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="idTypeSP" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="PictureName" Type="System.String" DbType="NVarChar(400)" CanBeNull="true" />
+      <Column Name="PictureURL" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="TypeSP" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="Type" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="STT" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="OrderSum" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Price" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Supplier" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
+      <Column Name="TotalStockNew" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="TotalInput" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="TotalOutput" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="TotalOrderOfMonth" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.GetSpareParts2" Method="GetSpareParts2">
+    <Parameter Name="yearNow" Type="System.Int32" DbType="Int" />
+    <Parameter Name="STT" Parameter="sTT" Type="System.Int32" DbType="Int" />
+    <ElementType Name="GetSpareParts2Result">
+      <Column Name="PartID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="PartName" Type="System.String" DbType="NVarChar(450)" CanBeNull="true" />
+      <Column Name="PositionSave" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
+      <Column Name="Maker" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
+      <Column Name="Model" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
+      <Column Name="ItemCode" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="SafetyStock" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="SafetyStockShow" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
+      <Column Name="LeadTime" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="MOQ_SPQ" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
+      <Column Name="QtyStock" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="OrderQty" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Quantity" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Remark" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="Sec" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="CreatedDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="CreatedBy" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="idTypeSP" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="PictureName" Type="System.String" DbType="NVarChar(400)" CanBeNull="true" />
+      <Column Name="PictureURL" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="TypeSP" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="Type" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="STT" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="OrderSum" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Price" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Supplier" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
+      <Column Name="TotalStockNew" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="TotalInput" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="TotalOutput" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="TotalOrderOfMonth" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.GetSpareParts3" Method="GetSpareParts3">
+    <Parameter Name="yearNow" Type="System.Int32" DbType="Int" />
+    <Parameter Name="STT" Parameter="sTT" Type="System.Int32" DbType="Int" />
+    <ElementType Name="GetSpareParts3Result">
+      <Column Name="PartID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="PartName" Type="System.String" DbType="NVarChar(450)" CanBeNull="true" />
+      <Column Name="PositionSave" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
+      <Column Name="Maker" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
+      <Column Name="Model" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
+      <Column Name="ItemCode" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="SafetyStock" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="SafetyStockShow" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
+      <Column Name="LeadTime" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="MOQ_SPQ" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
+      <Column Name="QtyStock" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="OrderQty" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Quantity" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Remark" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="Sec" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="CreatedDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="CreatedBy" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="idTypeSP" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="PictureName" Type="System.String" DbType="NVarChar(400)" CanBeNull="true" />
+      <Column Name="PictureURL" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="TypeSP" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="Type" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="STT" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="OrderSum" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Price" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Supplier" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
+      <Column Name="TotalStockNew" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="TotalInput" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="TotalOutput" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="TotalOrderOfMonth" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+</Database>

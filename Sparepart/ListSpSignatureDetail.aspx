@@ -1,0 +1,343 @@
+﻿<%@ Page Title="5.Spare parts Inventory management" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="ListSpSignatureDetail.aspx.cs" Inherits="QlyMain.Sparepart.ListSpSignatureDetail" %>
+
+<asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
+    <style>
+        body {
+            background: #80808024;
+        }
+
+        .box {
+            background: white;
+            box-shadow: 0 4px 8px 0 rgb(67 65 65 / 20%), 0 6px 20px 0 rgb(255 255 255 / 0%);
+            padding: 2px 0 2px 0;
+            width: 100%;
+            zoom: 96%;
+            padding: 0 15px 0 15px;
+            margin-bottom: 2px;
+            border-bottom: 2px solid #8cb6ca;
+        }
+
+        table tbody th, td {
+            padding: 5px;
+        }
+
+        .box-shadow2 {
+            box-shadow: 1px 3px 6px 0 rgba(0, 0, 0, 0.2), 0 3px 1px 0 rgba(0, 0, 0, 0.19);
+            background-color: white;
+            border-radius: 2px;
+        }
+
+        span.select2-selection.select2-selection--single {
+            height: 35px !important;
+        }
+
+        span.select2.select2-container.select2-container--default {
+            /* border: 2px solid #8bd9ff;
+            border-radius: 6px;*/
+        }
+
+        span.select2-dropdown.select2-dropdown--below {
+            font-size: 12px;
+        }
+
+        .styleBorder {
+            border: 2px solid #8bd9ff;
+            border-radius: 6px;
+        }
+
+        .Height35 {
+            height: 35px !important;
+        }
+
+        .margin0 {
+            margin: 0px !important;
+        }
+    </style>
+    <br />
+    <div>
+              <div class="page-header" style="text-align: center ; margin:0px;padding:0px">
+            <h2 style="margin-bottom:0px;margin-top:30px">Quản lý tồn kho Spare parts (Spare parts Inventory management)                        
+            </h2>
+        </div>
+        <div class="col-sm-2 col-md-2 col-lg-2" style="font-size: 12px; width: auto">
+            <div class="box-shadow2" style="padding: 5px">
+                <asp:LinkButton Text="➤ List mail" runat="server" ForeColor="#56879e" Font-Bold="true" CssClass="btn btn-default" Font-Size="12px" OnClick="btnListMail_Click" />
+                <br />
+                <br />
+                <asp:LinkButton Text="➤ Tạo List gửi mail" runat="server" ForeColor="#56879e" Font-Bold="true" CssClass="btn btn-default" Font-Size="12px" OnClick="btnAddMail_Click" />
+                <br />
+                <br />
+                <asp:LinkButton Text="➤ Spare part Menu " ForeColor="#56879e" Font-Bold="true" CssClass="btn btn-default" Font-Size="12px" runat="server" OnClick="btnSignature_Click" />
+            </div>
+        </div>
+        <div class="col-sm-10 col-md-10 col-lg-10  box-shadow2">
+            <h3 style="text-align: center">SUMARY STOCK </h3>
+            <div style="text-align: center">
+                <span style="font-size: 20px">
+                    <b>Title :</b>
+                    <asp:Label Text="" ID="lblTitleLb" runat="server" />
+                    <b>Content : </b>
+                    <asp:Label Text="" ID="lblCOntentLb" runat="server" />
+                </span>
+                <hr />
+            </div>
+
+            <asp:Label Text="" ID="lblThongbao" runat="server" />
+            <asp:Panel runat="server" ID="pnShowDong" Font-Size="13px">
+                Số dòng hiển thị:
+                                        <asp:DropDownList ID="ddlDong" runat="server"
+                                            CssClass="dropdown" AutoPostBack="true"
+                                            OnSelectedIndexChanged="ddlDong_SelectedIndexChanged">
+                                            <asp:ListItem>5</asp:ListItem>
+                                            <asp:ListItem>10</asp:ListItem>
+                                            <asp:ListItem>20</asp:ListItem>
+                                            <asp:ListItem>30</asp:ListItem>
+                                        </asp:DropDownList>
+            </asp:Panel>
+            <asp:GridView runat="server" ID="gv" CssClass="table" AutoGenerateColumns="False"
+                OnPageIndexChanging="gv_PageIndexChanging" AllowPaging="True"
+                DataKeyNames="id" Font-Size="12px" OnRowCommand="gv_RowCommand">
+                <Columns>
+                    <asp:TemplateField ItemStyle-Width="70px">
+                        <ItemTemplate>
+                            <%#  (Container.DataItemIndex + 1) %>
+                        </ItemTemplate>
+                        <ItemStyle Width="70px"></ItemStyle>
+                    </asp:TemplateField>
+                    <asp:TemplateField HeaderText="PartID" Visible="False">
+                        <EditItemTemplate>
+                            <asp:Label ID="lblPartID" runat="server" Text='<%# Bind("PartID") %>' Width="60px"></asp:Label>
+                        </EditItemTemplate>
+                        <ItemTemplate>
+                            <asp:Label ID="lblID" runat="server" Text='<%# Bind("PartID") %>' Width="60px"></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                    <asp:TemplateField HeaderText="Position Save" Visible="false">
+                        <EditItemTemplate>
+                            <asp:TextBox ID="txtPositionSave" runat="server"></asp:TextBox>
+                        </EditItemTemplate>
+                        <ItemTemplate>
+                            <asp:Label ID="Label1" runat="server" Text='<%# Bind("PositionSave") %>' Width="60px"></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                    <asp:TemplateField HeaderText="Part Name">
+                        <EditItemTemplate>
+                            <asp:TextBox ID="txtPartName" runat="server"></asp:TextBox>
+                        </EditItemTemplate>
+                        <ItemTemplate>
+                            <asp:Label ID="Label2" runat="server" Text='<%# Bind("PartName") %>' Width="150px"></asp:Label>
+                        </ItemTemplate>
+                        <ItemStyle Wrap="true" />
+                    </asp:TemplateField>
+                    <asp:TemplateField HeaderText="Maker">
+                        <EditItemTemplate>
+                            <asp:TextBox ID="txtMaker" runat="server"></asp:TextBox>
+                        </EditItemTemplate>
+                        <ItemTemplate>
+                            <asp:Label ID="Label3" runat="server" Text='<%# Bind("Maker") %>' Width="60px"></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                    <asp:TemplateField HeaderText="Model">
+                        <EditItemTemplate>
+                            <asp:TextBox ID="txtModel" runat="server"></asp:TextBox>
+                        </EditItemTemplate>
+                        <ItemTemplate>
+                            <asp:Label ID="Label4" runat="server" Text='<%# Bind("Model") %>' Width="120px"></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                    <asp:TemplateField HeaderText="ItemCode">
+                        <EditItemTemplate>
+                            <asp:TextBox ID="txtItemCode" runat="server"></asp:TextBox>
+                        </EditItemTemplate>
+                        <ItemTemplate>
+                            <asp:Label ID="Label5" runat="server" Text='<%# Bind("ItemCode") %>' Width="60px"></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                    <asp:TemplateField HeaderText="Price" Visible="false">
+                        <EditItemTemplate>
+                            <asp:TextBox ID="txtPrice" runat="server" Width="120"></asp:TextBox>
+                        </EditItemTemplate>
+                        <ItemTemplate>
+                            <asp:Label ID="Label51" runat="server" Text='<%# Bind("Price") %>'></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                    <asp:TemplateField HeaderText="Supplier" Visible="false">
+                        <EditItemTemplate>
+                            <asp:TextBox ID="txtSupplier" runat="server" Width="120"></asp:TextBox>
+                        </EditItemTemplate>
+                        <ItemTemplate>
+                            <asp:Label ID="Label52" runat="server" Text='<%# Bind("Supplier") %>'></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                    <asp:TemplateField HeaderText="PictureURL">
+                        <EditItemTemplate>
+                            <asp:FileUpload ID="FileUpload1" runat="server" Width="110" />
+                            <br />
+                            <asp:ImageButton CssClas="ImgbRadius margin" ID="ImgEdit" Width="80" Height="80"
+                                ImageUrl='<%# Bind("PictureURL") %>' runat="server" />
+                        </EditItemTemplate>
+                        <ItemTemplate>
+                            <asp:ImageButton CssClas="ImgbRadius margin" ID="ImgbRadius" Width="80" Height="80"
+                                ImageUrl='<%# Bind("PictureURL") %>' runat="server" />
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                   <%-- <asp:TemplateField HeaderText="Safety Stock">
+                        <EditItemTemplate>
+                            <asp:TextBox ID="txtSafety" runat="server"></asp:TextBox>
+                        </EditItemTemplate>
+                        <ItemTemplate>
+                            <asp:Label ID="Label6" runat="server" Text='<%# Bind("SafetyStock") %>' Width="20px"></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>--%>
+                    <asp:TemplateField HeaderText="Lead Time" Visible="false">
+                        <EditItemTemplate>
+                            <asp:TextBox ID="txtLeadTime" runat="server"></asp:TextBox>
+                        </EditItemTemplate>
+                        <ItemTemplate>
+                            <asp:Label ID="Label7" runat="server" Text='<%# Bind("LeadTime") %>' Width="20px"></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                    <asp:TemplateField HeaderText="MOQ_SPQ" Visible="false">
+                        <EditItemTemplate>
+                            <asp:TextBox ID="txtMOQ_SPQ" runat="server"></asp:TextBox>
+                        </EditItemTemplate>
+                        <ItemTemplate>
+                            <asp:Label ID="Label8" runat="server" Text='<%# Bind("MOQ_SPQ") %>' Width="20px"></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+
+                    <asp:TemplateField HeaderText="(Old)Safety Stock">
+                        <EditItemTemplate>
+                            <asp:TextBox ID="txtOldSafetyStock" runat="server"></asp:TextBox>
+                        </EditItemTemplate>
+                        <ItemTemplate>
+                            <asp:Label ID="Label81" runat="server" Text='<%# Bind("OldSafetyStock") %>' Width="20px"></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+
+                    <asp:TemplateField HeaderText="Safety Stock" HeaderStyle-CssClass="center">
+                        <EditItemTemplate>
+                            <asp:TextBox ID="txtSafety" runat="server"></asp:TextBox>
+                        </EditItemTemplate>
+                        <ItemTemplate>
+                            <div class="navbar-form" role="search">
+                                <div class="input-group">
+                                    <asp:Panel runat="server" DefaultButton="lbkSave">
+                                        <asp:TextBox ID="txtSafetySend" runat="server" BorderColor="#cc3300"
+                                            oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"
+                                            CssClass="form-control" Width="100px" Text='<%# Bind("SafetyStock") %>'></asp:TextBox>
+                                        <span class="input-group-btn">
+                                            <asp:LinkButton Text="✔" ID="lbkSave" CommandName="SaveSafety" 
+                                                runat="server" BorderColor="#CC3300" CssClass="btn btn-default" ForeColor="Green" />
+                                        </span>
+                                        <asp:Label Text="" ID="lblchangeIcon" Visible="false" runat="server" />
+                                    </asp:Panel>
+                                </div>
+                            </div>
+
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                    <asp:TemplateField HeaderText="Remark">
+                        <EditItemTemplate>
+                            <asp:TextBox ID="txtRemark" Text='<%# Bind("Remark") %>' runat="server" Width="120"></asp:TextBox>
+                        </EditItemTemplate>
+                        <ItemTemplate>
+                            <asp:Label ID="Label10" runat="server" Text='<%# Bind("Remark") %>'></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                </Columns>
+            </asp:GridView>
+            <div style="float: right">
+                <asp:GridView runat="server" ID="gvSign" AutoGenerateColumns="False"
+                    DataKeyNames="id" Font-Size="12px">
+                    <Columns>
+                        <asp:TemplateField>
+                            <ItemTemplate>
+                                <table style="text-align: center; border: 0px">
+                                    <tr>
+                                        <td style="border: 1px solid black">
+                                            <h5>Made by </h5>
+                                            <img src='<%# Eval("SignMadeBy") %>' alt="Made by" width="50" />
+                                        </td>
+                                        <td>
+                                            <img src="../Img/rightArrow.png" width="30" height="20" />
+                                        </td>
+                                        <td style="border: 1px solid black">
+                                            <h5>Confirm by </h5>
+                                            <img src='<%# Eval("SignConfirm") %>' alt="Confirm by" width="50" />
+                                        </td>
+                                        <td>
+                                            <img src="../Img/rightArrow.png" width="30" height="20" />
+                                        </td>
+                                        <td style="border: 1px solid black">
+                                            <h5>Approved by </h5>
+                                            <img src='<%# Eval("SignApprove") %>' alt="Approved by" width="50" />
+                                        </td>
+                                    </tr>
+                                </table>
+                            </ItemTemplate>
+                        </asp:TemplateField>
+                    </Columns>
+                </asp:GridView>
+                <asp:Label Text="" ID="lblThongbaoSendMail" runat="server" />
+                <table>
+                    <tr>
+                        <td>
+                            <asp:LinkButton Text="Approval/Confirm ➢" runat="server" Visible="false" ForeColor="Green"
+                                CssClass="btn btn-default" ID="lbkApprovalConfirm" OnClick="lbkApprovalConfirm_Click"></asp:LinkButton>
+                        </td>
+                        <td>
+                            <asp:LinkButton Text="Cancel ✗" Visible="false" CssClass="btn btn-default" ForeColor="Red" ID="lbkCancel" OnClick="lbkCancel_Click" runat="server" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <asp:Panel runat="server" ID="pnApproveMail" Visible="false">
+                                <div class="navbar-form" role="search">
+                                    <div class="input-group">
+                                          <textarea id="txtComment" cols="50" visible="false" style="width: 100%;" placeholder="Content" rows="1"
+                                        class="form-control borderbottom" runat="server"></textarea>
+
+                                        <asp:Panel runat="server" DefaultButton="btnSendWhenConfirm">
+                                            <input list="MainContent_MailLists" required name="myMailList" autocomplete="off"
+                                                id="txtMailList" class="form-control" placeholder="receive email..." runat="server"
+                                                style="height: 30px;">
+                                            <datalist id="MailLists" runat="server">
+                                            </datalist>
+                                            <span class="input-group-btn">
+                                                <asp:LinkButton Text="Send" Height="30px" runat="server" Font-Bold="true" ForeColor="#0099cc" CssClass="btn btn-default"
+                                                    ID="btnSendWhenConfirm" OnClick="btnSendWhenConfirm_Click">Send mail ✉</asp:LinkButton>
+                                            </span>
+                                        </asp:Panel>
+                                    </div>
+                                </div>
+                            </asp:Panel>
+                            <div>
+                                <asp:LinkButton Text="〈 Back" runat="server" CssClass="btn btn-primary" ID="lbkOpenBack" OnClick="lbkOpenBack_Click" />
+                            </div>
+                        </td>
+                    </tr>
+
+                </table>
+            </div>
+        </div>
+    </div>
+    <asp:HiddenField ID="_Id" runat="server" />
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('.selectSendMail').select2();
+        });
+        $(function () {
+            $('.SelectPs').select2(
+                {
+                    dropdownParent: $("#mailNestedAddListModal")
+                });
+        });
+        $(function () {
+            $('.SelectSng').select2(
+                {
+                    dropdownParent: $("#mailNestedAddListModal")
+                });
+        });
+    </script>
+</asp:Content>
