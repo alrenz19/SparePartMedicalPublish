@@ -44,10 +44,21 @@
                 
                 <!-- Spare Part Selection with Autocomplete -->
                 <div class="form-group">
+                    <label class="form-label">Scan Spare Part QR Code</label>
+                    <div style="display: flex; gap: 8px;">
+                        <asp:TextBox ID="txtQrScan" runat="server" CssClass="form-control"
+                            placeholder="Scan QR code, then press Enter..." autocomplete="off" />
+                        <asp:Button ID="btnQrScan" runat="server" Text="Scan"
+                            CssClass="btn btn-primary" OnClick="BtnQrScan_Click"
+                            CausesValidation="false" />
+                    </div>
+                    <small style="color: #6c757d;">Use a USB/Bluetooth QR scanner or paste the QR value.</small>
+                </div>
+                <div class="form-group">
                     <label class="form-label required">Spare Part</label>
                     <div style="position: relative;">
-                        <asp:TextBox ID="txtSparePart" runat="server" CssClass="form-control" 
-                            placeholder="Type at least 2 characters to search..." 
+                        <asp:TextBox ID="txtSparePart" runat="server" CssClass="form-control"
+                            placeholder="Type to search or scan QR code here..."
                             autocomplete="off" />
                         <div id="sparePartSuggestions" style="position: absolute; top: 100%; left: 0; right: 0; background: white; border: 1px solid #ddd; border-radius: 4px; max-height: 350px; overflow-y: auto; display: none; z-index: 1000; box-shadow: 0 2px 8px rgba(0,0,0,0.15);"></div>
                     </div>
@@ -74,6 +85,10 @@
                         <div>
                             <div style="font-size: 11px; font-weight: 600; opacity: .75; text-transform: uppercase;">STATUS</div>
                             <asp:Literal ID="litAlert" runat="server" />
+                        </div>
+                        <div>
+                            <div style="font-size: 11px; font-weight: 600; opacity: .75; text-transform: uppercase;">PROCESS</div>
+                            <div style="font-size: 16px; font-weight: 700;"><asp:Literal ID="litProcess" runat="server" /></div>
                         </div>
                     </div>
                 </asp:Panel>
@@ -227,6 +242,7 @@
             var sparePartInput, spareSuggestionsDiv, processFilter;
             var machineInput, machineSuggestionsDiv;
             var hfPartId, hfPartCode, hfPartName;
+            var qrScanInput, qrScanButton;
             var hfMachineId, hfMachineCode, hfMachineName;
 
             // Data caches
@@ -250,6 +266,8 @@
                 hfPartId = document.getElementById('<%= hfPartId.ClientID %>');
                 hfPartCode = document.getElementById('<%= hfPartCode.ClientID %>');
                 hfPartName = document.getElementById('<%= hfPartName.ClientID %>');
+                qrScanInput = document.getElementById('<%= txtQrScan.ClientID %>');
+                qrScanButton = document.getElementById('<%= btnQrScan.ClientID %>');
 
                 // Machine elements
                 machineInput = document.getElementById('<%= txtMachineCode.ClientID %>');
@@ -627,6 +645,7 @@
 
             function handleSpareSearch() {
                 clearTimeout(spareSearchTimeout);
+
                 spareSearchTimeout = setTimeout(function () {
                     var results = searchSpareParts(sparePartInput.value);
                     displaySpareSuggestions(results);
@@ -642,6 +661,15 @@
             }
 
             function setupEventListeners() {
+                if (qrScanInput && qrScanButton) {
+                    qrScanInput.addEventListener('keydown', function (e) {
+                        if (e.key === 'Enter') {
+                            e.preventDefault();
+                            qrScanButton.click();
+                        }
+                    });
+                }
+
                 // Process filter
                 if (processFilter) {
                     processFilter.addEventListener('change', updateProcessFilter);
@@ -649,6 +677,14 @@
 
                 // Spare part events
                 sparePartInput.addEventListener('input', handleSpareSearch);
+                sparePartInput.addEventListener('keydown', function (e) {
+                    if (e.key === 'Enter' && qrScanInput && qrScanButton &&
+                        sparePartInput.value.indexOf('(D@10)') !== -1) {
+                        e.preventDefault();
+                        qrScanInput.value = sparePartInput.value;
+                        qrScanButton.click();
+                    }
+                });
                 sparePartInput.addEventListener('click', function (e) {
                     e.stopPropagation();
                     if (sparePartInput.value.length >= MIN_SEARCH_LENGTH) {

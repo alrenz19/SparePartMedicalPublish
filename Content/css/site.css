@@ -4,7 +4,8 @@
    Font: IBM Plex Sans (headings) + Source Sans 3 (body)
    ═══════════════════════════════════════════════════ */
 
-@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600;700&family=Source+Sans+3:wght@300;400;600&family=IBM+Plex+Mono:wght@400;500&display=swap');
+/* Web fonts are loaded non-blocking from CebuMaster.Master (an @import here held up the
+   whole page until Google Fonts answered, which is slow or blocked on the shop-floor Wi-Fi). */
 
 /* ── CSS Variables ── */
 :root {

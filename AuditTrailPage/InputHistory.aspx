@@ -44,6 +44,7 @@
                         </asp:TemplateField>
                         <asp:BoundField DataField="ItemCode" HeaderText="Item Code" ItemStyle-CssClass="font-mono" ItemStyle-Width="110" />
                         <asp:BoundField DataField="PartName" HeaderText="Part Name" />
+                        <asp:BoundField DataField="Model" HeaderText="Model" ItemStyle-CssClass="font-mono" />
                         <asp:BoundField DataField="Unit" HeaderText="Unit" ItemStyle-Width="55" />
                         <asp:TemplateField HeaderText="Qty" ItemStyle-Width="70">
                             <ItemTemplate><span style="font-weight: 700; font-size: 15px; color: #16a34a;">+<%# Eval("Quantity") %></span></ItemTemplate>

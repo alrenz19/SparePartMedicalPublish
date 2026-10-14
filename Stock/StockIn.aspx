@@ -28,10 +28,21 @@
                 
                 <!-- Spare Part Selection with Autocomplete -->
                 <div class="form-group">
+                    <label class="form-label">Scan Spare Part QR Code</label>
+                    <div style="display: flex; gap: 8px;">
+                        <asp:TextBox ID="txtQrScan" runat="server" CssClass="form-control"
+                            placeholder="Scan QR code, then press Enter..." autocomplete="off" />
+                        <asp:Button ID="btnQrScan" runat="server" Text="Scan"
+                            CssClass="btn btn-primary" OnClick="BtnQrScan_Click"
+                            CausesValidation="false" />
+                    </div>
+                    <small style="color: #6c757d;">Use a USB/Bluetooth QR scanner or paste the QR value.</small>
+                </div>
+                <div class="form-group">
                     <label class="form-label">Spare Part *</label>
                     <div style="position: relative;">
-                        <asp:TextBox ID="txtSparePart" runat="server" CssClass="form-control" 
-                            placeholder="Type at least 2 characters to search..." 
+                        <asp:TextBox ID="txtSparePart" runat="server" CssClass="form-control"
+                            placeholder="Type to search or scan QR code here..."
                             autocomplete="off" />
                         <div id="sparePartSuggestions" style="position: absolute; top: 100%; left: 0; right: 0; background: white; border: 1px solid #ddd; border-radius: 4px; max-height: 350px; overflow-y: auto; display: none; z-index: 1000; box-shadow: 0 2px 8px rgba(0,0,0,0.15);"></div>
                     </div>
@@ -47,6 +58,12 @@
                             <div style="font-size: 10px; color: #0369a1; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px;">Current Stock</div>
                             <div style="font-size: 28px; font-weight: 700; color: #0c4a6e;">
                                 <asp:Literal ID="litStock" runat="server" />
+                            </div>
+                        </div>
+                        <div style="flex: 1; text-align: center;">
+                            <div style="font-size: 10px; color: #0369a1; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px;">Process</div>
+                            <div style="font-size: 16px; font-weight: 600; color: #0c4a6e;">
+                                <asp:Literal ID="litProcess" runat="server" />
                             </div>
                         </div>
                         <div style="flex: 1; text-align: center;">
@@ -120,6 +137,7 @@
                             </ItemTemplate>
                         </asp:TemplateField>
                         <asp:BoundField DataField="ItemCode" HeaderText="Code" ItemStyle-CssClass="font-mono" />
+                        <asp:BoundField DataField="Model" HeaderText="Model" ItemStyle-CssClass="font-mono" />
                         <asp:BoundField DataField="PartName" HeaderText="Part Name" />
                         <asp:TemplateField HeaderText="Qty" ItemStyle-Width="60" ItemStyle-HorizontalAlign="Center">
                             <ItemTemplate>
@@ -143,6 +161,7 @@
             'use strict';
 
             var sparePartInput, suggestionsDiv, processFilter, hfPartId, hfPartCode, hfPartName;
+            var qrScanInput, qrScanButton;
             var masterSparePartsData = null;
             var searchCache = new Map();
             var currentProcessFilter = '';
@@ -159,6 +178,8 @@
                 hfPartId = document.getElementById('<%= hfPartId.ClientID %>');
                 hfPartCode = document.getElementById('<%= hfPartCode.ClientID %>');
                 hfPartName = document.getElementById('<%= hfPartName.ClientID %>');
+                qrScanInput = document.getElementById('<%= txtQrScan.ClientID %>');
+                qrScanButton = document.getElementById('<%= btnQrScan.ClientID %>');
                 
                 if (!sparePartInput || !suggestionsDiv) {
                     return;
@@ -385,11 +406,28 @@
             }
 
             function setupEventListeners() {
+                if (qrScanInput && qrScanButton) {
+                    qrScanInput.addEventListener('keydown', function (e) {
+                        if (e.key === 'Enter') {
+                            e.preventDefault();
+                            qrScanButton.click();
+                        }
+                    });
+                }
+
                 if (processFilter) {
                     processFilter.addEventListener('change', updateProcessFilter);
                 }
 
                 sparePartInput.addEventListener('input', handleSearchInput);
+                sparePartInput.addEventListener('keydown', function (e) {
+                    if (e.key === 'Enter' && qrScanInput && qrScanButton &&
+                        sparePartInput.value.indexOf('(D@10)') !== -1) {
+                        e.preventDefault();
+                        qrScanInput.value = sparePartInput.value;
+                        qrScanButton.click();
+                    }
+                });
 
                 sparePartInput.addEventListener('click', function (e) {
                     e.stopPropagation();

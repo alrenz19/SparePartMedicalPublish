@@ -3,7 +3,7 @@
     Inherits="QlyMain.Dashboard.Default" %>
 
 <asp:Content ContentPlaceHolderID="HeadContent" runat="server">
-    <link href="../Content/css/SparepartDefaultStyle.css" rel="stylesheet" />
+    <%= QlyMain.Common.AssetHelper.Css("~/Content/css/SparepartDefaultStyle.css") %>
 </asp:Content>
 
 <asp:Content ContentPlaceHolderID="MainContent" runat="server">

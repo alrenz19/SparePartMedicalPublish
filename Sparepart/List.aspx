@@ -1,9 +1,9 @@
 ﻿<%@ Page Title="Spare Parts" Language="C#" MasterPageFile="~/CebuMaster.Master"
-    AutoEventWireup="true" CodeBehind="List.aspx.cs"
+    AutoEventWireup="true" CodeBehind="List.aspx.cs" MaintainScrollPositionOnPostback="true"
     Inherits="QlyMain.Sparepart.List" %>
 
 <asp:Content ContentPlaceHolderID="HeadContent" runat="server">
-    <link href="../Content/css/SparepartListStyle.css" rel="stylesheet" />
+    <%= QlyMain.Common.AssetHelper.Css("~/Content/css/SparepartListStyle.css") %>
     <style>
         /* ── Total Inventory Cost banner ───────────────────────────────── */
         .total-cost-banner {
@@ -59,6 +59,14 @@
             color: #cbd5e1;
             font-size: 13px;
         }
+        /* ── Monthly inventory column ─────────────────────────────────── */
+        .inv-last { font-size: 11px; font-weight: 700; margin-bottom: 4px; }
+        .inv-last.match { color: #15803d; }
+        .inv-last.disc { color: #b91c1c; }
+        .inv-last small { display: block; font-weight: 400; color: #94a3b8; }
+        .inv-select { font-size: 12px; padding: 2px 4px; height: auto; }
+        .inv-disc { display: none; gap: 4px; margin-top: 4px; }
+        .inv-disc input { width: 70px; font-size: 12px; padding: 2px 4px; height: auto; }
     </style>
 </asp:Content>
 
@@ -203,6 +211,11 @@
                     CssClass="btn btn-primary btn-sm"
                     OnClick="BtnPrintQr_Click" CausesValidation="false" />
                 <asp:HiddenField ID="hfQrPrintSelection" runat="server" />
+                <%-- Inventory check: filled by invSubmit() in the Inventory column, posted via btnSaveInventory --%>
+                <asp:HiddenField ID="hfInvPartId" runat="server" />
+                <asp:HiddenField ID="hfInvActual" runat="server" />
+                <asp:Button ID="btnSaveInventory" runat="server" Style="display: none;"
+                    OnClick="BtnSaveInventory_Click" CausesValidation="false" />
             </div>
 
             <div style="margin-left: auto; align-self: center; font-size: 13px; color: var(--text-muted);">
@@ -260,6 +273,7 @@
                 CssClass="data-table"
                 AutoGenerateColumns="false"
                 DataKeyNames="PartID"
+                EnableViewState="false"
                 OnRowCommand="gvParts_RowCommand"
                 EmptyDataText="No spare parts found."
                 GridLines="None"
@@ -300,11 +314,10 @@
                     <asp:TemplateField HeaderText="QR"
                         ItemStyle-Width="60" ItemStyle-HorizontalAlign="Center">
                         <ItemTemplate>
-                            <asp:Image ID="imgPartQr" runat="server"
-                                ImageUrl='<%# GetQrCodeDataUrl(Container.DataItem) %>'
-                                AlternateText="Spare part QR code"
-                                ToolTip="Spare part QR code"
-                                Style="width:45px; height:45px; object-fit:contain;" />
+                            <%-- plain <img>: an asp:Image would also copy the base64 QR into ViewState --%>
+                            <img src='<%# GetQrCodeDataUrl(Container.DataItem) %>'
+                                alt="Spare part QR code" title="Spare part QR code"
+                                style="width:45px; height:45px; object-fit:contain;" />
                         </ItemTemplate>
                     </asp:TemplateField>
 
@@ -312,12 +325,14 @@
                     <asp:TemplateField HeaderText="Image"
                         ItemStyle-Width="60" ItemStyle-HorizontalAlign="Center">
                         <ItemTemplate>
-                            <asp:Image ID="imgPart" runat="server"
-                                ImageUrl='<%# GetImageUrl(Eval("PictureURL")) %>'
-                                CssClass="part-image"
-                                AlternateText='<%# Eval("PartName") %>'
-                                ToolTip='<%# "Click to view " + Eval("PartName") %>'
-                                Style="width: 45px; height: 45px; object-fit: cover; border-radius: 6px; cursor: pointer; border: 1px solid #e2e8f0;" />
+                            <%-- thumbnail in the grid, original (data-full) in the click-to-view modal --%>
+                            <img src='<%# GetThumbUrl(Eval("PictureURL")) %>'
+                                data-full='<%# GetImageUrl(Eval("PictureURL")) %>'
+                                class="part-image" loading="lazy" decoding="async" width="45" height="45"
+                                alt='<%#: Eval("PartName") %>'
+                                title='<%#: "Click to view " + Eval("PartName") %>'
+                                onerror="if(this.src!==this.getAttribute('data-full')){this.src=this.getAttribute('data-full');}"
+                                style="width: 45px; height: 45px; object-fit: cover; border-radius: 6px; cursor: pointer; border: 1px solid #e2e8f0;" />
                         </ItemTemplate>
                     </asp:TemplateField>
 
@@ -403,6 +418,23 @@
                             <asp:Label ID="lblAlert" runat="server"
                                 CssClass="alert-pill"
                                 Style='<%# "background:" + (Eval("AlertStatus").ToString()=="CRITICAL"?"#fee2e2":Eval("AlertStatus").ToString()=="WARNING"?"#fef9c3":"#dcfce7") + ";color:" + (Eval("AlertStatus").ToString()=="CRITICAL"?"#991b1b":Eval("AlertStatus").ToString()=="WARNING"?"#854d0e":"#15803d") %>'><%# Eval("AlertStatus") %></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+
+                    <%-- Monthly inventory check (record only; latest check this month shown above the picker) --%>
+                    <asp:TemplateField HeaderText="Inventory" ItemStyle-Width="150">
+                        <ItemTemplate>
+                            <%# GetInventoryLabel(Eval("PartID")) %>
+                            <select class="form-select inv-select" data-part='<%# Eval("PartID") %>'
+                                    data-stock='<%# Eval("QtyStock") %>' onchange="invChange(this)">
+                                <option value="">-- Check --</option>
+                                <option value="match">Match</option>
+                                <option value="disc">Discrepancy</option>
+                            </select>
+                            <span class="inv-disc">
+                                <input type="number" min="0" step="1" class="form-control inv-qty" placeholder="Actual" />
+                                <button type="button" class="btn btn-primary btn-sm" onclick="invSaveDisc(this)">Save</button>
+                            </span>
                         </ItemTemplate>
                     </asp:TemplateField>
 
@@ -500,6 +532,30 @@
                 for (var i = 0; i < checkboxes.length; i++)
                     checkboxes[i].checked = ids.indexOf(checkboxes[i].value) !== -1;
             }());
+
+            // ── Monthly inventory column ──
+            function invSubmit(partId, actual) {
+                document.getElementById('<%= hfInvPartId.ClientID %>').value = partId;
+                document.getElementById('<%= hfInvActual.ClientID %>').value = actual;
+                document.getElementById('<%= btnSaveInventory.ClientID %>').click();
+            }
+            function invChange(sel) {
+                var disc = sel.parentNode.querySelector('.inv-disc');
+                disc.style.display = sel.value === 'disc' ? 'flex' : 'none';
+                if (sel.value === 'disc') { disc.querySelector('input').focus(); return; }
+                if (sel.value === 'match') {
+                    if (confirm('Record MATCH: actual count equals system stock (' + sel.getAttribute('data-stock') + ')?'))
+                        invSubmit(sel.getAttribute('data-part'), '');
+                    else
+                        sel.value = '';
+                }
+            }
+            function invSaveDisc(btn) {
+                var sel = btn.parentNode.parentNode.querySelector('.inv-select');
+                var qty = btn.parentNode.querySelector('input').value.trim();
+                if (!/^\d+$/.test(qty)) { alert('Enter the actual counted quantity (0 or more).'); return; }
+                invSubmit(sel.getAttribute('data-part'), qty);
+            }
         </script>
 
         <%-- Footer bar — shows part count + total cost + month --%>
@@ -529,7 +585,7 @@
             var images = document.querySelectorAll('.part-image');
             for (var i = 0; i < images.length; i++) {
                 images[i].onclick = function () {
-                    showImageModal(this.src, this.alt);
+                    showImageModal(this.getAttribute('data-full') || this.src, this.alt);
                 };
             }
         }

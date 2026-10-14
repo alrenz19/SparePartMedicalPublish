@@ -3,7 +3,7 @@
     Inherits="QlyMain.Sparepart.Detail" %>
 
 <asp:Content ContentPlaceHolderID="HeadContent" runat="server">
-    <link href="../Content/css/SparepartDetailStyle.css" rel="stylesheet" />
+    <%= QlyMain.Common.AssetHelper.Css("~/Content/css/SparepartDetailStyle.css") %>
 </asp:Content>
 
 <asp:Content ContentPlaceHolderID="TopbarActions" runat="server">
