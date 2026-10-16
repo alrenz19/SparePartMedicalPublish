@@ -20,6 +20,8 @@
         })();
     </script>
     <asp:ContentPlaceHolder ID="HeadContent" runat="server" />
+    <asp:ContentPlaceHolder ID="Scripts" runat="server" />
+    <asp:ContentPlaceHolder ID="ScriptContent" runat="server" />
 </head>
 <body>
     <form id="MainForm" runat="server">
@@ -87,11 +89,13 @@
                     <div class="topbar-title">
                         <asp:Literal ID="litPageTitle" runat="server" />
                         <span>
-                            <asp:Literal ID="litBreadcrumb" runat="server" /></span>
+                            <asp:Literal ID="litBreadcrumb" runat="server" />
+                            <asp:ContentPlaceHolder ID="BreadcrumbExtra" runat="server" />
+                        </span>
                     </div>
                     <div class="topbar-actions">
                         <span class="topbar-clock" id="clockDisplay"></span>
-                        <asp:ContentPlaceHolder ID="TopbarActions" runat="server" />
+                        <asp:ContentPlaceHolder ID="TopbarActions" runat="server"></asp:ContentPlaceHolder>
                     </div>
                 </header>
                 <main class="page-content">
