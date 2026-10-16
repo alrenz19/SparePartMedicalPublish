@@ -6,6 +6,24 @@
     <%= QlyMain.Common.AssetHelper.Css("~/Content/css/SparepartDefaultStyle.css") %>
 </asp:Content>
 
+<asp:Content ContentPlaceHolderID="Scripts" runat="server">
+    <script type="text/javascript">
+        // Ensure dashboard images are lazy-loaded and decoded asynchronously for faster paint.
+        (function(){
+            try {
+                document.addEventListener('DOMContentLoaded', function(){
+                    var container = document.querySelector('.kpi-grid') || document.body;
+                    var imgs = container.querySelectorAll('img');
+                    imgs.forEach(function(img){
+                        try { img.setAttribute('loading', 'lazy'); } catch(e){}
+                        try { img.setAttribute('decoding', 'async'); } catch(e){}
+                    });
+                });
+            } catch(e) { /* fail silently */ }
+        })();
+    </script>
+</asp:Content>
+
 <asp:Content ContentPlaceHolderID="MainContent" runat="server">
 
     <%-- KPI Cards --%>
@@ -362,23 +380,28 @@
 
 <asp:Content ContentPlaceHolderID="ScriptContent" runat="server">
     <script>
-        function switchTab(tab) {
-            document.getElementById('panelCrit').style.display = tab === 'crit' ? '' : 'none';
-            document.getElementById('panelWarn').style.display = tab === 'warn' ? '' : 'none';
-            document.getElementById('panelAll').style.display = tab === 'all' ? '' : 'none';
+        // Use arguments to avoid parameter implicit-any diagnostics
+        var switchTab = function () {
+            var tab = arguments.length ? String(arguments[0]) : '';
+            var pc = document.getElementById('panelCrit'); if (pc && pc instanceof HTMLElement) pc.style.display = tab === 'crit' ? '' : 'none';
+            var pw = document.getElementById('panelWarn'); if (pw && pw instanceof HTMLElement) pw.style.display = tab === 'warn' ? '' : 'none';
+            var pa = document.getElementById('panelAll');  if (pa && pa instanceof HTMLElement) pa.style.display = tab === 'all' ? '' : 'none';
             ['Crit', 'Warn', 'All'].forEach(function (t) {
                 var btn = document.getElementById('tab' + t);
-                if (btn) btn.classList.toggle('active', t.toLowerCase() === tab);
+                if (btn && btn instanceof HTMLElement) btn.classList.toggle('active', t.toLowerCase() === tab);
             });
-        }
-        // Apply progress bar widths from data-pct (avoids ASP.NET parser error with % in style)
+        };
+        // Apply progress bar widths from data-pct
         function applyBarWidths() {
-            document.querySelectorAll('.stock-bar-fill[data-pct]').forEach(function (el) {
-                el.style.width = el.getAttribute('data-pct') + '%';
+            Array.prototype.slice.call(document.querySelectorAll('.stock-bar-fill[data-pct]')).forEach(function (el) {
+                var pct = el.getAttribute('data-pct');
+                if (!pct) return;
+                // Ensure we operate on HTMLElement to access style
+                if (el instanceof HTMLElement) el.style.width = pct + '%';
             });
         }
         document.addEventListener('DOMContentLoaded', function () {
-            switchTab('crit');
+            switchTab();
             applyBarWidths();
         });
     </script>
