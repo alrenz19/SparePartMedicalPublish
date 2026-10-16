@@ -21,7 +21,6 @@
     </script>
     <asp:ContentPlaceHolder ID="HeadContent" runat="server" />
     <asp:ContentPlaceHolder ID="Scripts" runat="server" />
-    <asp:ContentPlaceHolder ID="ScriptContent" runat="server" />
 </head>
 <body>
     <form id="MainForm" runat="server">
@@ -115,7 +114,6 @@
                                 <asp:Literal ID="litBackLabel" runat="server" Text="Back" />
                             </a>
                         </asp:Panel>
-                        <asp:ContentPlaceHolder ID="BreadcrumbExtra" runat="server" />
                     </asp:Panel>
                     <asp:ContentPlaceHolder ID="MainContent" runat="server" />
                 </main>

@@ -1,7 +1,7 @@
 <%@ WebHandler Language="C#" Class="QlyMain.Admin.ClearDashboardCache" %>
 using System;
 using System.Web;
-using System.Runtime.Caching;
+using DataService.Helpers;
 
 namespace QlyMain.Admin
 {
@@ -13,9 +13,8 @@ namespace QlyMain.Admin
         {
             try
             {
-                var cache = MemoryCache.Default;
-                const string key = "DashboardVM_v1";
-                if (cache.Contains(key)) cache.Remove(key);
+                // Same cache and key DataAccessLayer uses for the dashboard
+                SimpleMemoryCache.Remove("DashboardVM_v1");
                 context.Response.ContentType = "text/plain";
                 context.Response.Write("OK");
             }

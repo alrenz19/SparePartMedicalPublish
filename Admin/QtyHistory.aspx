@@ -81,17 +81,9 @@
         <div class="col-sm-12 col-md-12 col-lg-12">
             <div class="messagealert" id="alert_container">
             </div>
-<<<<<<< .mine
             <asp:Label ID="lblThongbaoAdd" runat="server"></asp:Label>
               <section class="content-header">
                     <h3>Warehouse safety history
-||||||| .r1
-            <section class="content-header">
-                <h3 style="text-align: center">Lịch sử an toàn kho
-=======
-            <section class="content-header">
-                <h3 style="text-align: center">Warehouse safety history
->>>>>>> .r6
                 <asp:Label Text="" ID="lblTitile" Font-Bold="true" ForeColor="#607D8B" runat="server" /></h3>
                 </section>
                 <div class="col-sm-12 col-md-12 col-lg-12">
@@ -116,7 +108,6 @@
                         <div class="col-sm-6 col-md-6 col-lg-6">
                         </div>
                     </div>
-<<<<<<< .mine
                     <div class="row">
                         <div style="float: right">
                             <asp:Panel ID="Panel1" runat="server" DefaultButton="lbkFind">
@@ -141,33 +132,6 @@
                                 </table>
                             </asp:Panel>
                         </div>
-||||||| .r1
-                    <div class="col-sm-5 col-md-5 col-lg-5">
-                        <asp:Panel ID="Panel1" runat="server" DefaultButton="lbkFind">
-                            <asp:TextBox ID="txtFind" runat="server" autocomplete="off" Height="30px" Width="30%" BorderColor="#0099cc" Class="form-control"></asp:TextBox>
-                            <ajaxToolkit:CalendarExtender ID="CalendarExtender2" runat="server"
-                                OnClientDateSelectionChanged="dateselect_txtFind"
-                                BehaviorID="txtFind_CalendarExtender" TargetControlID="txtFind" />
-                            <asp:TextBox ID="txtFindPosition" runat="server" placeholder="Position Save" Height="30px" Width="30%" BorderColor="#0099cc" Class="form-control"></asp:TextBox>
-                            <span class="input-group-btn">
-                                <asp:LinkButton ID="lbkFind" runat="server" Height="30px" BorderColor="#0099cc" OnClick="lbkFind_Click"
-                                    class="btn btn-default"><span class="glyphicon glyphicon-search"></span>̀Tìm kiếm</asp:LinkButton>
-                            </span>
-                        </asp:Panel>
-=======
-                    <div class="col-sm-5 col-md-5 col-lg-5">
-                        <asp:Panel ID="Panel1" runat="server" DefaultButton="lbkFind">
-                            <asp:TextBox ID="txtFind" runat="server" autocomplete="off" Height="30px" Width="30%" BorderColor="#0099cc" Class="form-control"></asp:TextBox>
-                            <ajaxToolkit:CalendarExtender ID="CalendarExtender2" runat="server"
-                                OnClientDateSelectionChanged="dateselect_txtFind"
-                                BehaviorID="txtFind_CalendarExtender" TargetControlID="txtFind" />
-                            <asp:TextBox ID="txtFindPosition" runat="server" placeholder="Position Save" Height="30px" Width="30%" BorderColor="#0099cc" Class="form-control"></asp:TextBox>
-                            <span class="input-group-btn">
-                                <asp:LinkButton ID="lbkFind" runat="server" Height="30px" BorderColor="#0099cc" OnClick="lbkFind_Click"
-                                    class="btn btn-default"><span class="glyphicon glyphicon-search"></span>Search</asp:LinkButton>
-                            </span>
-                        </asp:Panel>
->>>>>>> .r6
                     </div>
                     <div class="row" style="overflow: scroll">
                         <div class="gridview-container">

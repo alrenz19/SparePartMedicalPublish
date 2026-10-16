@@ -27,8 +27,7 @@
 
     <div>
         <asp:DropDownList ID="ddlDong" runat="server"
-            CssClass="dropdown" AutoPostBack="true"
-            OnSelectedIndexChanged="ddlDong_SelectedIndexChanged">
+            CssClass="dropdown">
             <asp:ListItem>10</asp:ListItem>
             <asp:ListItem>30</asp:ListItem>
             <asp:ListItem>50</asp:ListItem>
